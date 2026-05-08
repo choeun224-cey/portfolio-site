@@ -5,12 +5,12 @@
       <div class="hero__inner container">
         <p class="hero__greeting fade-up" style="--delay: 0">안녕하세요, 저는</p>
         <h1 class="hero__title fade-up" style="--delay: 1">
-          프론트엔드 개발자<br />
+          사내 시스템을 기획·구현·운영하는 개발자<br />
           <span class="hero__name">JEY</span>입니다.
         </h1>
         <p class="hero__description fade-up" style="--delay: 2">
-          사내 디자인 시스템을 설계하고 구축한 경험을 바탕으로,<br />
-          일관된 UI와 효율적인 개발 환경을 만드는 데 집중합니다.
+          사내 디자인 시스템 단독 구축·운영, 자산 라이프사이클 관리,<br />
+          운영 자동화 경험을 바탕으로 안정적인 시스템 환경을 만드는 데 집중합니다.
         </p>
         <div class="hero__actions fade-up" style="--delay: 3">
           <router-link to="/projects" class="btn btn--primary">
