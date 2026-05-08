@@ -1,0 +1,124 @@
+@use 'variables' as *;
+
+// ============================================
+// Responsive Breakpoints
+// ============================================
+@mixin mobile {
+  @media (max-width: #{$breakpoint-md - 1px}) { @content; }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-md) and (max-width: #{$breakpoint-lg - 1px}) { @content; }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-lg) { @content; }
+}
+
+@mixin min-width($bp) {
+  @media (min-width: $bp) { @content; }
+}
+
+// ============================================
+// Layout
+// ============================================
+@mixin container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $sp-24;
+
+  @include mobile {
+    padding: 0 $sp-16;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// ============================================
+// Typography
+// ============================================
+@mixin heading-xl {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+
+  @include mobile {
+    font-size: $font-size-3xl;
+  }
+}
+
+@mixin heading-lg {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+@mixin heading-md {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+@mixin heading-sm {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-normal;
+}
+
+@mixin body-text {
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+}
+
+// ============================================
+// Components
+// ============================================
+@mixin card {
+  background: $white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-base, transform $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin tag($bg: $primary-50, $color: $primary-700) {
+  display: inline-flex;
+  align-items: center;
+  padding: $sp-4 $sp-12;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color;
+  background: $bg;
+  border-radius: $radius-full;
+}
+
+@mixin section-padding {
+  padding: $sp-96 0;
+
+  @include mobile {
+    padding: $sp-64 0;
+  }
+}
