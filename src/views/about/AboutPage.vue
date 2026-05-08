@@ -4,7 +4,7 @@
       <div class="container">
         <h1 class="about__title">About Me</h1>
         <p class="about__subtitle">
-          문제를 정의하고, 구조를 설계하고, 팀이 쓸 수 있는 코드를 만듭니다.
+          사내 시스템을 기획하고, 표준을 만들고, 운영하는 사람.
         </p>
       </div>
     </section>
@@ -18,14 +18,15 @@
           </div>
           <div class="profile__body">
             <h2 class="profile__name">JEY</h2>
-            <p class="profile__role">Frontend Developer</p>
+            <p class="profile__role">Frontend Developer · 사내 시스템 운영</p>
             <p class="profile__bio">
               SI 증권 프로젝트에서 웹 개발 경력을 시작하여, 구름톤 부트캠프에서
-              기획자·디자이너·백엔드 개발자와의 팀 협업을 경험했습니다. 현재는
-              사내 디자인 시스템을 설계하고 구축하는 업무를 담당하고 있습니다.
-              프레임워크에 의존하지 않는 Vanilla JS 기반 컴포넌트 설계, npm
-              패키지 배포 파이프라인 구축, 번들 최적화 등 "사용하는 사람을 위한
-              개발"에 집중하고 있습니다.
+              기획자·디자이너·백엔드 개발자와의 팀 협업을 경험했습니다. 현재
+              한일네트웍스 기획팀 소속으로 사내 디자인 시스템(FS-DS)을 단독
+              구축·운영하며 65개 컴포넌트의 npm 패키지 라이프사이클을 관리하고
+              있습니다. Vanilla JS 기반 컴포넌트 설계, CI/CD 파이프라인 구축,
+              번들 최적화(111MB→3.3MB), 사내 표준 가이드 작성 등 "사용하는
+              사람을 위한 시스템 운영"에 집중하고 있습니다.
             </p>
             <div class="profile__contact">
               <a href="mailto:choeunyoung224@gmail.com" class="profile__contact-item">
@@ -134,8 +135,8 @@ import profilePhoto from "@/assets/images/profile-photo.jpeg";
 const career = ref([
   {
     period: "2025.06 — 현재",
-    role: "퍼블리셔 / 프론트엔드 개발",
-    company: "한일네트웍스 FS사업팀 기획팀",
+    role: "사내 시스템 기획·구현·운영 / 프론트엔드 개발",
+    company: "한일네트웍스 FS사업부 기획팀",
     highlights: [
       "사내 웹 디자인 시스템(FS-DS) 설계 및 구축 — Vanilla JS + SCSS 기반 65개 컴포넌트, 1,275개 SVG 아이콘 시스템, GitHub Packages 배포 파이프라인 구축",
       "AIA생명 STT 기반 상담사 관리 시스템(관리자 페이지) 프론트엔드 개발 참여 — 대시보드·상담사 관리·계정 관리 등 관리자 페이지 5종 이상 설계 및 구현, STT 변환된 상담 발화 텍스트를 고객/상담사별로 구분하여 채팅 형태로 시각화하는 상세 뷰 컴포넌트 개발",
