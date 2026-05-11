@@ -49,6 +49,16 @@
             <i class="bi bi-github"></i>
             GitHub 저장소
           </a>
+          <a
+            v-if="project.links.planning"
+            :href="project.links.planning"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="detail__link detail__link--planning"
+          >
+            <i class="bi bi-journal-text"></i>
+            기획 문서 (Notion)
+          </a>
         </div>
       </div>
     </section>
@@ -604,6 +614,9 @@ function getVocaTrainingData() {
     role: "기획·디자인·풀스택 (단독)",
     period: "2026.05 — 진행 중",
     tags: ["Vue 3", "Vite", "Gemini API", "Web Speech API", "LLM", "localStorage"],
+    links: {
+      planning: "https://www.notion.so/voca-training-35de4090c739806296e8cedfeed23f7b",
+    },
     sections: [
       {
         icon: "bi bi-flag",

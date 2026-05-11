@@ -61,6 +61,9 @@
       "tags": ["Vue 3", "Vite", "Gemini API", "Web Speech API", "LLM", "localStorage"],
       "role": "기획·디자인·풀스택 (단독)",
       "period": "2026.05 — 진행 중",
+      "links": {
+        "planning": "https://www.notion.so/voca-training-35de4090c739806296e8cedfeed23f7b"
+      },
       "sections": [
         {
           "icon": "bi bi-flag",
