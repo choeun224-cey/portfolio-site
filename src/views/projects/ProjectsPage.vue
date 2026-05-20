@@ -19,7 +19,13 @@
             class="project-item"
           >
             <div class="project-item__thumb">
-              <div class="project-item__placeholder">
+              <img
+                v-if="project.thumbnail"
+                :src="project.thumbnail"
+                :alt="project.title"
+                class="project-item__thumb-img"
+              />
+              <div v-else class="project-item__placeholder">
                 {{ project.title.charAt(0) }}
               </div>
             </div>
@@ -50,6 +56,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
+import fsDsThumb from '@/assets/images/storybook-login.png'
+import goormthonThumb from '@/assets/images/qn-home.png'
+import hanipMapThumb from '@/assets/images/hanip-map_home.png'
 
 const projects = ref([])
 
@@ -67,6 +76,7 @@ onMounted(async () => {
         tags: ['Design System', 'Vanilla JS', 'SCSS', 'Storybook'],
         role: 'Frontend Developer (단독)',
         period: '2025.06 — 현재',
+        thumbnail: fsDsThumb,
       },
       {
         id: 'voca-training',
@@ -83,6 +93,7 @@ onMounted(async () => {
         tags: ['React', 'TypeScript', 'Tailwind CSS', 'Figma', 'Team Project'],
         role: 'Frontend Developer (3인)',
         period: '구름톤 1회차',
+        thumbnail: goormthonThumb,
       },
       {
         id: 'hanip-map',
@@ -91,6 +102,7 @@ onMounted(async () => {
         tags: ['Next.js 16', 'React 19', 'TypeScript', 'Supabase', 'Tailwind v4', 'PWA'],
         role: 'Full-stack Developer (단독)',
         period: '2026.04',
+        thumbnail: hanipMapThumb,
       },
     ]
   }
@@ -137,6 +149,14 @@ onMounted(async () => {
     background: linear-gradient(135deg, $primary-100, $primary-200);
     @include flex-center;
     min-height: 200px;
+    overflow: hidden;
+  }
+
+  &__thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   &__placeholder {

@@ -67,7 +67,13 @@
             :style="{ '--reveal-delay': `${idx * 150}ms` }"
           >
             <div class="project-card__thumb">
-              <div class="project-card__placeholder">
+              <img
+                v-if="project.thumbnail"
+                :src="project.thumbnail"
+                :alt="project.title"
+                class="project-card__thumb-img"
+              />
+              <div v-else class="project-card__placeholder">
                 {{ project.title.charAt(0) }}
               </div>
             </div>
@@ -93,6 +99,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import fsDsThumb from '@/assets/images/storybook-login.png'
 
 const skills = ref([
   {
@@ -119,6 +126,7 @@ const featuredProjects = ref([
     title: 'FS-DS 디자인 시스템',
     summary: '사내 전체 웹 프로젝트를 위한 디자인 시스템 구축. Vanilla JS + SCSS 기반, npm 패키지 배포.',
     tags: ['Design System', 'SCSS', 'Storybook'],
+    thumbnail: fsDsThumb,
   },
   {
     id: 'voca-training',
@@ -388,6 +396,14 @@ onUnmounted(() => {
     height: 200px;
     background: linear-gradient(135deg, $primary-100, $primary-200);
     @include flex-center;
+    overflow: hidden;
+  }
+
+  &__thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   &__placeholder {
