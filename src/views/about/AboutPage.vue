@@ -180,7 +180,7 @@ const certGroups = ref([
     description: "데이터베이스 설계·웹 분석·웹 표준 기반 화면 구현 역량",
     items: [
       { name: "SQLD (SQL 개발자)", date: "2024.04" },
-      { name: "Google Analytics 4 (GA4) Certified", date: "취득" },
+      { name: "Google Analytics Certification (Skillshop)", date: "취득" },
       { name: "웹디자인기능사", date: "2021.12" },
     ],
   },
