@@ -107,8 +107,8 @@ const skills = ref([
     items: ['Vue.js', 'React', 'Next.js', 'TypeScript', 'JavaScript (ES6+)', 'SCSS / CSS3', 'HTML5'],
   },
   {
-    category: 'AI & Backend',
-    items: ['Google Gemini API', 'Anthropic Claude API', 'Web Speech API', 'Supabase / PostgreSQL', 'SQL'],
+    category: 'AI & Data',
+    items: ['Google Gemini API', 'Anthropic Claude API', 'Web Speech API', 'Google Analytics 4 (GA4)', 'Supabase / PostgreSQL', 'SQL'],
   },
   {
     category: 'Tools & Build',

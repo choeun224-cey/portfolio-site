@@ -176,10 +176,11 @@ const career = ref([
 const certGroups = ref([
   {
     icon: "bi bi-code-slash",
-    label: "개발",
-    description: "데이터베이스 설계 및 웹 표준 기반 화면 구현 역량",
+    label: "개발 · 데이터",
+    description: "데이터베이스 설계·웹 분석·웹 표준 기반 화면 구현 역량",
     items: [
       { name: "SQLD (SQL 개발자)", date: "2024.04" },
+      { name: "Google Analytics 4 (GA4) Certified", date: "취득" },
       { name: "웹디자인기능사", date: "2021.12" },
     ],
   },
