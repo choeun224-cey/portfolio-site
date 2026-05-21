@@ -104,19 +104,19 @@ import fsDsThumb from '@/assets/images/storybook-login.png'
 const skills = ref([
   {
     category: 'Frontend',
-    items: ['Vue.js', 'JavaScript (ES6+)', 'SCSS / CSS3', 'HTML5'],
+    items: ['Vue.js', 'React', 'Next.js', 'TypeScript', 'JavaScript (ES6+)', 'SCSS / CSS3', 'HTML5'],
+  },
+  {
+    category: 'AI & Backend',
+    items: ['Google Gemini API', 'Anthropic Claude API', 'Web Speech API', 'Supabase / PostgreSQL', 'SQL'],
   },
   {
     category: 'Tools & Build',
-    items: ['Vite', 'Storybook', 'Git / GitHub', 'npm / GitHub Packages'],
+    items: ['Vite', 'Storybook', 'GitHub Actions', 'Git / GitHub', 'npm / GitHub Packages'],
   },
   {
-    category: 'CI/CD & Deploy',
-    items: ['GitHub Actions', 'GitHub Pages', 'npm publish'],
-  },
-  {
-    category: 'Design',
-    items: ['Design Token', 'Component System', 'Figma (협업)'],
+    category: 'Design & Collaboration',
+    items: ['Design Token', 'Component System', 'Figma', 'Notion', 'Storybook'],
   },
 ])
 

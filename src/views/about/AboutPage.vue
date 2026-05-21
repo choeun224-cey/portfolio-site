@@ -95,7 +95,12 @@
             <div class="education__content">
               <span class="education__period">2016.03 — 2020.02</span>
               <h3 class="education__school">조선대학교</h3>
-              <p class="education__major">가구도자디자인과 (4년제)</p>
+              <p class="education__major">가구도자디자인과 (4년제) — 도자전공</p>
+              <ul class="education__highlights">
+                <li>졸업 작품 서울 공예트렌드 페어 출품 (2019)</li>
+                <li>단독 기획·제작한 도자 작품 페어 기간 중 완판</li>
+                <li>외부 고객 1:1 응대를 통해 구매 결정 페인포인트 진단·가격 협상 직접 경험</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -138,8 +143,9 @@ const career = ref([
     role: "사내 시스템 기획·구현·운영 / 프론트엔드 개발",
     company: "한일네트웍스 FS사업부 기획팀",
     highlights: [
-      "사내 웹 디자인 시스템(FS-DS) 설계 및 구축 — Vanilla JS + SCSS 기반 65개 컴포넌트, 1,275개 SVG 아이콘 시스템, GitHub Packages 배포 파이프라인 구축",
+      "사내 웹 디자인 시스템(FS-DS) 설계 및 구축 — Vanilla JS + SCSS 기반 65개 컴포넌트, 1,275개 SVG 아이콘 시스템, GitHub Packages 배포 파이프라인 구축, 번들 최적화(111MB → 3.3MB, 97% 감소)",
       "AIA생명 STT 기반 상담사 관리 시스템(관리자 페이지) 프론트엔드 개발 참여 — 대시보드·상담사 관리·계정 관리 등 관리자 페이지 5종 이상 설계 및 구현, STT 변환된 상담 발화 텍스트를 고객/상담사별로 구분하여 채팅 형태로 시각화하는 상세 뷰 컴포넌트 개발",
+      "Voca Training (AI 콜봇 트레이너) — 회사 도메인(AI콜) 관련 개인 POC 진행. LLM·음성 인터페이스 기반 인터랙티브 롤플레이 트레이너 단독 기획·구현. 벤더 중립 LLM Abstraction(Claude → Gemini 전환), Mock 모드 등 운영 사고 실험",
       "Notion·Figma·GitHub 기반 팀 협업",
     ],
     tools: ["Vanilla JS", "Vite", "SCSS Modules", "Figma", "GitHub Actions", "Storybook"],
@@ -159,8 +165,9 @@ const career = ref([
     role: "SI 웹 개발자",
     company: "동양시스템즈 금융사업팀",
     highlights: [
-      "KB증권 HTS 직원 통합 단말 시스템 재구축 프로젝트 — HTML/CSS/JS/VBScript 기반 웹 화면 개발, 현업 담당자와 직접 소통하며 요구사항 반영 및 화면 구현",
-      "상상인증권 MTS 유지보수 및 신규 콘텐츠 추가 프로젝트 참여",
+      "KB증권 직원 통합 단말 시스템(Office Pro) 재구축 프로젝트 — 구버전 → 신버전 화면 컨버전, VBScript 기반 UI 개발, AS-IS 분석으로 결함 발견 및 TO-BE 단계 반영, 가독성·운영 효율 약 90% 향상",
+      "PMS 재구축 프로젝트 — JSP 기반 시스템을 React로 마이그레이션, 서비스 화면 재구축 및 UI 개발 리딩(PL) 수행, Figma·Notion 기반 협업 문서 관리",
+      "상상인증권 MTS 유지보수 및 신규 콘텐츠 추가 — 모바일 UI 유지보수, 모바일 기기 직접 테스트, 현업 운영 부서 소통을 통한 운영 환경 반영",
     ],
     tools: ["HTML", "CSS", "JavaScript", "VBScript"],
   },
@@ -458,6 +465,35 @@ const certGroups = ref([
   &__major {
     font-size: $font-size-sm;
     color: $primary-600;
+    margin-bottom: $sp-12;
+  }
+
+  &__highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $sp-8;
+
+    li {
+      font-size: $font-size-sm;
+      color: $gray-500;
+      line-height: $line-height-relaxed;
+      padding-left: $sp-16;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $primary-300;
+      }
+    }
   }
 }
 
