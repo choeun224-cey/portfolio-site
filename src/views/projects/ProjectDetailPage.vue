@@ -247,6 +247,7 @@ import hanipMobileList from "@/assets/images/hanip-map_list.jpg";
 import hanipMobileImport from "@/assets/images/hanip-map_import.jpg";
 import hanipMobileRandom from "@/assets/images/hanip-map_random.jpg";
 import hanipRandomWeb from "@/assets/images/hanip-map_random_web.png";
+import trainingImg from "@/assets/images/training3.png";
 
 const route = useRoute();
 const project = ref(null);
@@ -333,6 +334,14 @@ onMounted(async () => {
         ],
       },
       "hanip-map": {},
+      "voca-training": {
+        "관리자 어드민 — AI 시나리오 메이커": [
+          {
+            src: trainingImg,
+            alt: "AI 시나리오 메이커 — 3-Step Stepper로 시나리오·페르소나·평가 기준 설정",
+          },
+        ],
+      },
     };
 
     const imageMap = imageMapByProject[project.value.id] || {};

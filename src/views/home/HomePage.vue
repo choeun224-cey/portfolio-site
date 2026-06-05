@@ -100,6 +100,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import fsDsThumb from '@/assets/images/storybook-login.png'
+import vocaTrainingThumb from '@/assets/images/training3.png'
 
 const skills = ref([
   {
@@ -133,6 +134,7 @@ const featuredProjects = ref([
     title: 'AI 콜센터 상담사 트레이닝 시스템',
     summary: '관리자 어드민 + 상담사 모바일(TlmTalk) 풀시스템. Vue 3 + 사내 디자인 시스템(FS-DS) 기반.',
     tags: ['Vue 3', 'FS-DS', 'AI 트레이닝'],
+    thumbnail: vocaTrainingThumb,
   },
 ])
 

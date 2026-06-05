@@ -59,6 +59,7 @@ import axios from 'axios'
 import fsDsThumb from '@/assets/images/storybook-login.png'
 import goormthonThumb from '@/assets/images/qn-home.png'
 import hanipMapThumb from '@/assets/images/hanip-map_home.png'
+import vocaTrainingThumb from '@/assets/images/training3.png'
 
 const projects = ref([])
 
@@ -85,6 +86,7 @@ onMounted(async () => {
         tags: ['Vue 3', 'Vite', 'FS-DS', 'Vue Router', 'SCSS', 'AI 트레이닝'],
         role: '기획·디자인·구현 (단독)',
         period: '2026.05 — 진행 중',
+        thumbnail: vocaTrainingThumb,
       },
       {
         id: 'goormthon',
