@@ -721,10 +721,8 @@ function getVocaTrainingData() {
           <p>본 프로젝트의 가장 특별한 점은 <strong>본인이 한일네트웍스에서 단독으로 구축한 사내 디자인 시스템(FS-DS)을 직접 활용</strong>했다는 점입니다. 본인 자산을 본인이 다른 프로젝트에서 재활용한 메타 사례.</p>
           <p>다만 fs-ds는 <strong>프레임워크 비종속 Vanilla JS factory 함수</strong>(<code>const el = Button(options)</code>처럼 DOM 노드를 반환)라 Vue 컴포넌트가 아닙니다. Vue 템플릿에 <code>&lt;Button&gt;</code>처럼 쓸 수 없고 <code>v-model</code>도 직접 못 걸어요. 이 한계를 <strong>FsNode 공용 래퍼</strong>로 해결.</p>
         `,
-        code: `// src/components/common/FsNode.vue
-<script setup>
-import { ref, onMounted, watch, onBeforeUnmount } from 'vue'
-
+        code: `// FsNode.vue — Vue 컴포지션 API 안에서
+//                Vanilla JS factory(fs-ds)를 마운트하는 공용 래퍼
 const props = defineProps({
   factory: { type: Function, required: true },  // fs-ds 함수 (예: Button)
   options: { type: Object, default: () => ({}) },
@@ -738,13 +736,11 @@ function render() {
 onMounted(render)
 watch(() => props.options, render)
 onBeforeUnmount(() => host.value?.replaceChildren())
-</script>
 
-<template><span ref="host" class="fs-node" /></template>
-
-// 사용
-<FsNode :factory="Button"
-        :options="{ children: '저장', variant: 'solid', onClick: save }" />`,
+// 사용 (Vue 템플릿 안에서)
+// FsNode 컴포넌트에 factory와 options를 prop으로 전달
+//   factory: Button (fs-ds의 함수)
+//   options: { children: '저장', variant: 'solid', onClick: save }`,
         codeLabel: "Vanilla JS factory를 Vue Composition API에 통합",
       },
       {
