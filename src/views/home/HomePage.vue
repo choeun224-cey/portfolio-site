@@ -130,9 +130,9 @@ const featuredProjects = ref([
   },
   {
     id: 'voca-training',
-    title: 'Voca Training — AI 콜봇 트레이너',
-    summary: '"점수가 아닌 코칭"을 주는 LLM 음성 롤플레이 트레이너. 벤더 중립 abstraction + Mock 모드 포함.',
-    tags: ['Vue 3', 'Gemini API', 'LLM'],
+    title: 'AI 콜센터 상담사 트레이닝 시스템',
+    summary: '관리자 어드민 + 상담사 모바일(TlmTalk) 풀시스템. Vue 3 + 사내 디자인 시스템(FS-DS) 기반.',
+    tags: ['Vue 3', 'FS-DS', 'AI 트레이닝'],
   },
 ])
 

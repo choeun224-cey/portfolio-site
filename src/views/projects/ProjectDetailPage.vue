@@ -608,12 +608,12 @@ import Checkbox from "../../components/Controls/Checkbox.js";`,
 function getVocaTrainingData() {
   return {
     id: "voca-training",
-    title: "Voca Training — AI 콜봇 트레이너",
+    title: "AI 콜센터 상담사 트레이닝 시스템",
     summary:
-      "LLM과 음성 인터페이스를 결합한 인터랙티브 롤플레이 트레이너. 시장의 흔한 'AI 영업 트레이닝 SaaS'와 다르게 '점수가 아니라 코칭'에 초점을 두고 평가 시스템을 설계했고, 벤더 중립 LLM abstraction과 Mock 모드 등 비용·환경 의사결정도 함께 포함된 사이드 프로젝트입니다.",
-    role: "기획·디자인·풀스택 (단독)",
+      "관리자 어드민(시나리오·페르소나·평가 기준 설정)과 상담사 모바일(실시간 트레이닝)을 합친 풀시스템. Vue 3 + 사내 디자인 시스템(FS-DS) 기반으로 직접 기획·구현 중인 사이드 프로젝트입니다. 시장의 흔한 'AI 영업 트레이닝 SaaS'와 다르게 '점수가 아니라 코칭'에 초점을 두고, 관리자가 정교하게 시나리오·평가 기준을 설계하고 상담사가 모바일로 실시간 학습하는 일관된 흐름을 설계했습니다.",
+    role: "기획·디자인·구현 (단독)",
     period: "2026.05 — 진행 중",
-    tags: ["Vue 3", "Vite", "Gemini API", "Web Speech API", "LLM", "localStorage"],
+    tags: ["Vue 3", "Vite", "FS-DS (사내 DS)", "Vue Router", "SCSS", "AI 트레이닝"],
     links: {
       planning: "https://www.notion.so/voca-training-35de4090c739806296e8cedfeed23f7b",
     },
@@ -622,8 +622,12 @@ function getVocaTrainingData() {
         icon: "bi bi-flag",
         title: "프로젝트 개요",
         content: `
-          <p>실무에서 다루던 <strong>AI콜 도메인</strong>을 개인 프로젝트로 확장하여, LLM과 음성 인터페이스를 결합한 <strong>인터랙티브 롤플레이 트레이너</strong>를 단독 기획·구현 중입니다.</p>
-          <p>보험 TM 상담사가 AI 콜봇과 실시간 음성 또는 키보드 입력으로 영업 시나리오를 훈련할 수 있는 SaaS 형태이며, <strong>도메인은 보험 TM이지만 같은 구조로 의료·교육·고객응대 등 어떤 시뮬레이션 트레이닝에도 적용 가능한 아키텍처</strong>로 설계했습니다.</p>
+          <p>실무에서 다루는 <strong>AI콜 도메인</strong>을 개인 POC로 확장하여, 콜센터 상담사 트레이닝의 <strong>풀시스템(관리자 어드민 + 상담사 모바일)</strong>을 단독 기획·구현 중입니다.</p>
+          <p>관리자가 시나리오·페르소나·평가 기준을 정교하게 설정 → 상담사가 모바일로 실시간 트레이닝하는 일관된 흐름. 두 화면이 같은 도메인 모델 위에서 동작합니다.</p>
+          <ul>
+            <li><strong>관리자 어드민</strong> — Vue 3 + 사내 디자인 시스템(FS-DS) 기반 SPA. 시나리오 메이커·교육 배포·평가 리포트 구현</li>
+            <li><strong>상담사 모바일 (TlmTalk)</strong> — 실시간 트레이닝 화면. 인내심 게이지·SOS 도움말·연습/실전 모드 분리 기획</li>
+          </ul>
         `,
       },
       {
@@ -643,120 +647,113 @@ function getVocaTrainingData() {
         `,
       },
       {
+        icon: "bi bi-grid-1x2",
+        title: "관리자 어드민 — AI 시나리오 메이커",
+        content: `
+          <p>관리자가 AI 가상 고객과의 실시간 롤플레잉 훈련을 세팅하는 화면. <strong>3단계 스텝퍼</strong>(기본 정보 → 페르소나 설정 → 평가 기준 설정)로 복잡한 설정을 단계별로 분리했습니다.</p>
+          <p>가장 정교한 부분은 <strong>LLM 실시간 평가 미션</strong>의 동적 폼. 관리자가 미션별 가중치를 자유롭게 추가/삭제하고, <strong>합계 100점 강제 검증</strong>이 실시간으로 동작합니다. 합계가 100이면 초록색 Tag로 성공 피드백, 미달·초과 시 다른 색으로 즉시 알림.</p>
+        `,
+        featureCards: [
+          {
+            icon: "bi bi-list-ol",
+            title: "3단계 스텝퍼 UX",
+            desc: "기본 정보 → 페르소나 설정 → 평가 기준의 단계별 분리. 이전 단계는 done, 현재는 active, 이후는 ready로 자동 렌더.",
+          },
+          {
+            icon: "bi bi-sliders",
+            title: "페르소나 정교한 설정",
+            desc: "성별·연령대 Select, 인내심 게이지 Radio 그룹, 첫 반응 프롬프트 textarea로 페르소나 행동 패턴 세밀 제어.",
+          },
+          {
+            icon: "bi bi-calculator",
+            title: "가중치 합계 실시간 검증",
+            desc: "computed로 가중치 합계 실시간 계산. 100점이면 초록 Tag로 성공 피드백, 아니면 색상 변화로 즉시 알림.",
+          },
+        ],
+      },
+      {
+        icon: "bi bi-arrow-left-right",
+        title: "관리자 어드민 — 교육 배포 (Dual-list UI)",
+        content: `
+          <p>생성된 시나리오를 특정 상담사 조직에 할당하는 <strong>4단계 세로형 워크플로우</strong>. 핵심은 <strong>Dual-list UI</strong>로 좌측(전체 상담사) → 우측(배포 대상) 사이를 ⟶/⟵ 버튼으로 이동시키는 패턴.</p>
+          <p>일정 및 통과 점수 설정은 native <code>&lt;input type="range"&gt;</code>를 fs-ds SCSS 토큰(<code>--primary-500</code>)으로 스타일링하고, 선택한 점수는 <code>ProgressBar</code>로 시각 피드백. fs-ds에 Range Slider가 없는 한계를 토큰 통일성으로 우회한 사례입니다.</p>
+        `,
+      },
+      {
+        icon: "bi bi-phone",
+        title: "상담사 모바일 — TlmTalk (기획 완료)",
+        content: `
+          <p>관리자가 설정한 시나리오를 상담사가 실제로 학습하는 <strong>실시간 트레이닝 모바일 화면</strong>. 현재 화면 컨셉 기획 완료, 구현 진행 예정.</p>
+          <p>핵심 기획 의도는 <strong>학습자의 인지 부하를 단계적으로 분리</strong>한 것입니다. 초보자는 정답을 보고 따라하고, 익숙해지면 실전 모드로 넘어가는 학습 곡선 설계.</p>
+        `,
+        featureCards: [
+          {
+            icon: "bi bi-heart-pulse",
+            title: "인내심 게이지 — 페르소나 감정 시각화",
+            desc: "0~100% 게이지로 페르소나의 현재 인내심을 실시간 정량 시각화. 상담사가 \"지금 고객이 어떻게 느끼는지\"를 직관적으로 파악 가능.",
+            example: "83% · 여유 있음",
+          },
+          {
+            icon: "bi bi-arrow-repeat",
+            title: "연습 / 실전 모드 분리",
+            desc: "학습 단계별 UX 분리. 연습 모드는 정답 가이드 제공, 실전 모드는 자유 응답. 학습자 인지 부하를 단계적으로 늘려가는 사고.",
+          },
+          {
+            icon: "bi bi-lightbulb-fill",
+            title: "SOS 도움말 — 추천 화법",
+            desc: '"바쁘신데 죄송합니다"라고 공감해 주세요\' 같은 발화 단위 가이드. 점수가 아닌 직접 실행 가능한 액션을 제공.',
+          },
+        ],
+      },
+      {
         icon: "bi bi-lightbulb",
         title: "차별화 ① — 점수가 아닌 코칭",
         content: `
-          <p>각 KPI마다 <strong>세 가지를 강제</strong>했습니다 — 점수 / 근거가 된 실제 발화 / 다음 통화에서 적용 가능한 구체 액션.</p>
-          <p>그리고 시스템 프롬프트에 <strong>"추상 조언 금지" 규칙</strong>을 박아서, LLM이 "공감을 더 표현하세요" 같은 형식적 답을 못 하게 막았습니다. 반드시 발화 단위 액션으로만 답하게.</p>
+          <p>기존 AI 영업 트레이닝 SaaS들은 통화 끝나면 "84점입니다" 같은 점수만 주고 끝. 사용자는 "왜 그 점수인지, 다음엔 뭘 바꿔야 하는지" 모르니까 트레이닝 효과가 떨어집니다.</p>
+          <p>모바일의 <strong>SOS 도움말 패턴</strong>이 이 차별화의 정수. 단순 점수 표시가 아니라 <strong>"고객님이 운전 중이시군요. 먼저 '바쁘신데 죄송합니다'라고 공감해 주세요"</strong> 같은 발화 단위 액션을 직접 제시합니다. "추천 화법대로 말해보기" 버튼으로 사용자가 즉시 실행 가능.</p>
+          <p>LLM 평가 시스템에도 같은 사고를 적용 — 시스템 프롬프트에 <strong>"추상 조언 금지" 규칙</strong>을 명시해서 "공감을 더" 같은 형식적 답을 못 하게 막고, 반드시 근거 발화 인용 + 발화 단위 액션으로만 답하게 강제.</p>
         `,
-        featureCards: [
-          {
-            icon: "bi bi-bar-chart",
-            title: "점수 + 시각화",
-            desc: "기본 — 5개 KPI(공감·통화 유지·열린 질문·거절 회복·다음 약속)로 0~100점 채점하고 점수바·색상으로 시각화.",
-          },
-          {
-            icon: "bi bi-quote",
-            title: "근거가 된 실제 발화 인용",
-            desc: '점수 산출 근거가 된 상담사의 실제 발화를 그대로 인용. 사용자가 입력한 자기 발화가 화면에 나오니 "AI가 진짜 분석한다"는 인상을 줍니다.',
-            example: '"또 필요한 사항은 없으세요?"',
-          },
-          {
-            icon: "bi bi-lightning-charge",
-            title: "발화 단위 액션",
-            desc: "추상 조언 X. '공감을 더'가 아니라 '거절 직후 「걱정 많이 되셨겠어요」를 1회 추가'처럼 다음 통화에서 바로 적용 가능한 구체 액션으로 답하게.",
-          },
-        ],
       },
       {
         icon: "bi bi-diagram-3",
-        title: "차별화 ② — 벤더 중립 LLM Abstraction",
+        title: "차별화 ② — 사내 디자인 시스템(FS-DS) Vue 통합",
         content: `
-          <p>LLM API 변경(Anthropic Claude → Google Gemini)을 미리 가정하고, <strong>호출자(컴포넌트)는 어떤 벤더를 쓰는지 모르게</strong> 설계했습니다.</p>
-          <p>모든 LLM 호출은 <code>llmClient.chat()</code> 단일 진입점을 거치고, 실제 벤더 변환은 <strong>vite dev proxy 한 곳</strong>에서만 일어납니다. 메시지 형식(<code>{role, content}</code>)은 Anthropic 스타일로 통일하고, Gemini의 <code>{role, parts}</code> 형식으로는 프록시에서만 변환.</p>
-          <p>실제로 Claude → Gemini 전환 시, <strong>컴포넌트·평가 로직·페르소나 프롬프트는 한 줄도 안 바뀌었고</strong> 프록시와 모델명·.env 키 이름만 교체했습니다.</p>
+          <p>본 프로젝트의 가장 특별한 점은 <strong>본인이 한일네트웍스에서 단독으로 구축한 사내 디자인 시스템(FS-DS)을 직접 활용</strong>했다는 점입니다. 본인 자산을 본인이 다른 프로젝트에서 재활용한 메타 사례.</p>
+          <p>다만 fs-ds는 <strong>프레임워크 비종속 Vanilla JS factory 함수</strong>(<code>const el = Button(options)</code>처럼 DOM 노드를 반환)라 Vue 컴포넌트가 아닙니다. Vue 템플릿에 <code>&lt;Button&gt;</code>처럼 쓸 수 없고 <code>v-model</code>도 직접 못 걸어요. 이 한계를 <strong>FsNode 공용 래퍼</strong>로 해결.</p>
         `,
-        code: `// llmClient.js — 호출자가 보는 단일 진입점
-export async function chat({ messages, system, model, max_tokens }) {
-  return fetch('/api/chat', { ... }).then(r => r.json())
-}
+        code: `// src/components/common/FsNode.vue
+<script setup>
+import { ref, onMounted, watch, onBeforeUnmount } from 'vue'
 
-// vite.config.js — 벤더 변환은 이 파일에만 갇힘
-function geminiProxy(env) {
-  // {role, content} → {role, parts} 변환
-  // Anthropic 호환 응답 형태로 다시 변환
-}`,
-        codeLabel: "단일 abstraction + 프록시 변환",
+const props = defineProps({
+  factory: { type: Function, required: true },  // fs-ds 함수 (예: Button)
+  options: { type: Object, default: () => ({}) },
+})
+
+const host = ref(null)
+function render() {
+  host.value?.replaceChildren()
+  host.value?.appendChild(props.factory({ ...props.options }))
+}
+onMounted(render)
+watch(() => props.options, render)
+onBeforeUnmount(() => host.value?.replaceChildren())
+</script>
+
+<template><span ref="host" class="fs-node" /></template>
+
+// 사용
+<FsNode :factory="Button"
+        :options="{ children: '저장', variant: 'solid', onClick: save }" />`,
+        codeLabel: "Vanilla JS factory를 Vue Composition API에 통합",
       },
       {
-        icon: "bi bi-piggy-bank",
-        title: "차별화 ③ — Mock 모드로 비용·시연 안전성 분리",
+        icon: "bi bi-bullseye",
+        title: "차별화 ③ — 학습 단계별 UX (연습/실전 모드)",
         content: `
-          <p>Gemini 무료 티어가 일일 한도 20회로 빠듯해서, <strong>Mock 모드</strong>를 별도로 깔았습니다. Settings 토글 ON/OFF로 즉시 전환 가능, ON 시 LLM 호출 0회.</p>
-          <p>Mock 응답이 그냥 하드코딩이면 어색하니까, <strong>사용자가 입력한 실제 발화를 정규식으로 추출해서 평가의 quote에 자동 끼워 넣게</strong> 했습니다. mock인데도 personalize됨.</p>
-        `,
-        featureCards: [
-          {
-            icon: "bi bi-toggles",
-            title: "단일 진입점 분기",
-            desc: "evaluator/customer 함수 첫 줄에서 isDemoMode() 체크. 호출자(컴포넌트)는 데모 모드 존재 자체를 모르고 동일하게 사용.",
-          },
-          {
-            icon: "bi bi-search",
-            title: "사용자 발화 자동 매칭",
-            desc: '정규식 패턴으로 KPI별 키워드 매칭. 닫힌 질문엔 "없으세요·맞으시죠", 거절 회복엔 "잠깐·짧게" 등. 사용자의 진짜 발화가 quote에 들어감.',
-            example: "/(없으세요|있으세요)/.test(line)",
-          },
-          {
-            icon: "bi bi-cash-coin",
-            title: "비용 0 + 즉시 토글",
-            desc: "데모 모드 ON 시 LLM 호출 0회. localStorage 토글이라 새로고침해도 유지. 평소 개발·시연용으로 무료 티어 보존.",
-          },
-        ],
-      },
-      {
-        icon: "bi bi-keyboard",
-        title: "키보드 입력 모드 (STT fallback)",
-        content: `
-          <p>브라우저 음성 인식(SpeechRecognition API)은 환경에 따라 마이크 권한·HTTPS·디바이스 문제로 작동 안 할 수 있어요. <strong>면접장 시연이 STT 실패로 무너지지 않도록</strong> 키보드 입력 모드를 footer 토글로 추가했습니다.</p>
-          <p>키보드 모드 활성화 시 스크립트 자동 진행이 멈추고, 사용자가 직접 발화를 입력 → LLM이 페르소나로 응답 → 다시 입력 흐름. 시연 보장용 안전장치이자 면접장 자유로움 확보.</p>
-        `,
-      },
-      {
-        icon: "bi bi-clock-history",
-        title: "세션 히스토리 영구 저장",
-        content: `
-          <p>모든 트레이닝 세션을 <code>localStorage</code>에 자동 누적합니다. 통화 종료 시 utterances·평가 결과·duration이 함께 저장돼서, 새로고침해도 유지.</p>
-          <p>핵심 디테일: <strong>한 번 평가된 세션은 재호출하지 않습니다</strong>. 히스토리에서 클릭하면 저장된 평가가 0초 만에 재표시. Vue watcher로 lastReport.id 변경을 감지 → 저장된 evaluation을 즉시 ev에 주입.</p>
-        `,
-        featureCards: [
-          {
-            icon: "bi bi-save",
-            title: "자동 영구 저장",
-            desc: "endCall 시점에 sessionHistory에 push, deep watcher로 localStorage에 자동 직렬화. 최대 100건 cap.",
-          },
-          {
-            icon: "bi bi-arrow-clockwise",
-            title: "재호출 없는 재조회",
-            desc: "히스토리에서 클릭 → setLastReport → watcher가 evaluation을 ev에 즉시 동기화. 재호출 없이 0초 표시.",
-          },
-          {
-            icon: "bi bi-graph-up",
-            title: "트렌드 추적",
-            desc: "평균 점수, 이번 달 건수를 자동 집계. 한 번의 시연이 아닌 시간에 따른 개선이 트레이닝 SaaS의 본질.",
-          },
-        ],
-      },
-      {
-        icon: "bi bi-arrow-repeat",
-        title: "React POC → Vue 마이그레이션",
-        content: `
-          <p>초기엔 <strong>React + Babel inline</strong>으로 빠르게 POC를 만들어 핵심 인터랙션(시나리오 진행, STT/TTS, 점수 갱신)을 검증했습니다. 검증 후 운영 코드 수준으로 끌어올리기 위해 <strong>Vue 3 + Vite로 전면 마이그레이션</strong>.</p>
-          <ul>
-            <li>레거시 React 원본은 <code>_legacy_react/</code>에 보존하여 변환 전후 비교 가능</li>
-            <li>React의 <code>useState</code>/<code>useEffect</code> 패턴을 Vue의 <code>ref</code>/composables로 이관</li>
-            <li>두 프레임워크의 상태·렌더링 모델 차이 직접 경험</li>
-          </ul>
+          <p>모바일 화면 상단의 <strong>연습 모드 / 실전 모드 토글</strong>이 의도적 기획 결정. 단순 기능 분리가 아니라 <strong>학습자의 인지 부하를 단계별로 늘려가는 UX 사고</strong>를 반영했습니다.</p>
+          <p>연습 모드에서는 SOS 도움말이 항상 활성화되어 추천 화법을 제공하고, "추천 화법대로 말해보기" 버튼으로 직접 실행 유도. 실전 모드에서는 도움말 없이 자유 응답으로 전환되어 실전 감각 학습.</p>
+          <p>또한 화면 하단의 <strong>"자신 있어요 → 실전 모드로 가기"</strong> CTA로 학습자의 자발적 전환을 유도. 강제 전환이 아닌 학습자 자율성을 존중한 설계입니다.</p>
         `,
       },
       {
@@ -764,34 +761,34 @@ function geminiProxy(env) {
         title: "기술 스택과 의사결정",
         content: `
           <ul>
-            <li><strong>Frontend</strong> — Vue 3 + Vite</li>
-            <li><strong>LLM</strong> — Google Gemini 2.5 Flash (무료 티어). 단일 abstraction으로 추후 Claude·OpenAI 등으로 교체 가능</li>
-            <li><strong>음성</strong> — Web Speech API (STT/TTS, 데모용). 운영 단계에서는 Clova/Google STT로 교체 가능한 <code>useSpeech</code> composable로 추상화</li>
-            <li><strong>저장소</strong> — localStorage (세션 히스토리·데모 모드 토글). 추후 백엔드 도입 시 어댑터 교체로 마이그레이션 가능</li>
-            <li><strong>스타일</strong> — Vanilla CSS + CSS Variables (oklch 컬러 토큰)</li>
+            <li><strong>Frontend</strong> — Vue 3 (Composition API, <code>&lt;script setup&gt;</code>) + Vite + Vue Router</li>
+            <li><strong>UI 라이브러리</strong> — <code>@hanil-fs-web/fs-ds</code> (사내 디자인 시스템, GitHub Packages)</li>
+            <li><strong>스타일</strong> — SCSS + fs-ds 토큰(<code>$primary-500</code>, <code>@include shadow(...)</code>). Tailwind 미사용.</li>
+            <li><strong>모바일 (계획)</strong> — 동일한 Vue 3 + fs-ds 모바일 레이아웃. 시나리오·페르소나 데이터 모델 공유.</li>
           </ul>
-          <p><strong>왜 Gemini 무료 티어?</strong> — 비용 0으로 시연·테스트 가능. 한도 부족분은 Mock 모드로 보완하여 실시연을 100% 보장.</p>
-          <p><strong>왜 LLM abstraction?</strong> — 벤더 락인 회피. 실제로 Claude → Gemini 전환을 4~5줄로 마쳤음.</p>
+          <p><strong>왜 사내 DS?</strong> — 본인이 구축한 자산을 직접 활용. 디자인 일관성 + 본인 자산의 메타적 검증.</p>
+          <p><strong>왜 Tailwind 미사용?</strong> — 사내 표준 SCSS 토큰을 엄격히 유지하기 위함. 회사 환경 시뮬레이션의 일관성.</p>
         `,
       },
       {
         icon: "bi bi-signpost-2",
         title: "진행 현황 및 다음 단계",
         content: `
-          <p>현재 <strong>MVP 1차 골든패스</strong>가 완성된 상태입니다 — 로그인 → 대시보드 → 시나리오 선택 → 트레이닝(키보드 입력) → 통화 종료 → AI 평가 → 히스토리 누적 → 재조회까지의 흐름이 정상 작동.</p>
+          <p>현재 진행 상태:</p>
           <ul>
-            <li><strong>완료</strong> — 평가 시스템 (5개 KPI + reasoning), 벤더 중립 abstraction, Mock 모드, 키보드 입력 fallback, 세션 히스토리 영구 저장, React → Vue 마이그레이션</li>
-            <li><strong>다음</strong> — STT 안정화, 시연 영상 녹화, Vercel 정적 배포 (Functions로 LLM 프록시), placeholder 화면(Admin·Dashboard 디테일) 채우기</li>
+            <li><strong>완료</strong> — 도메인 IA·시나리오/페르소나/평가체계 데이터 설계, 관리자 어드민 핵심 화면(시나리오 메이커·교육 배포), FS-DS Vue 통합 패턴(FsNode 래퍼), 가중치 합계 실시간 검증</li>
+            <li><strong>기획 완료, 구현 진행 예정</strong> — 상담사 모바일(TlmTalk) — 인내심 게이지·SOS 도움말·연습/실전 모드</li>
+            <li><strong>다음</strong> — 평가 리포트 화면, 모바일 구현, LLM 연동(시나리오·평가 기준 → 실제 페르소나 응답·평가), 데모 영상 녹화</li>
           </ul>
         `,
       },
     ],
     takeaways: [
       "기획 단계에서 도메인 정보 구조(IA·시나리오·페르소나·평가체계)를 먼저 정리한 후 코드를 작성하는 흐름을 체득. 화면 이전에 도메인 사고가 먼저.",
-      "단일 진입점 abstraction (llmClient·useSpeech·isDemoMode)을 통해 외부 의존성(LLM 벤더·STT 엔진·환경)을 호출자로부터 격리하는 설계 패턴을 익혔습니다.",
-      "Mock 모드처럼 환경별 분기를 단일 함수의 첫 줄에서 처리하면, 호출자 코드 변경 없이 비용·시연·테스트가 모두 분리 가능하다는 것을 직접 구현으로 증명.",
-      "정규식 패턴 매칭으로 mock 응답을 사용자 입력 기반으로 personalize하는 작은 디테일이 'AI가 진짜 분석한다'는 인상을 만든다는 점 — 작은 디테일이 사용자 경험을 결정.",
-      "벤더 중립 메시지 abstraction(Anthropic 스타일 + Gemini 변환 프록시) 덕분에 LLM 전환을 4~5줄로 끝낼 수 있었습니다. 단일 책임 + 인터페이스 분리의 가치 체감.",
+      "본인이 단독으로 구축한 사내 디자인 시스템(FS-DS)을 다른 프로젝트에서 직접 재활용한 메타 경험. 본인 자산이 진짜로 운영 가능한지 검증.",
+      "Vanilla JS factory 라이브러리를 Vue Composition API에 통합하는 FsNode 래퍼 패턴을 직접 설계. 프레임워크 비종속 라이브러리를 Vue 생태계에 끼워 넣는 보편적 패턴.",
+      "관리자 어드민(복잡한 폼·가중치 검증)과 상담사 모바일(학습 단계별 UX·실시간 감정 시각화)의 서로 다른 UX 사고를 같은 도메인 모델 위에서 일관되게 설계.",
+      "'점수가 아닌 코칭' 차별화 사고를 LLM 시스템 프롬프트(추상 조언 금지 규칙)와 모바일 UI(SOS 도움말·추천 화법 버튼) 두 영역에 일관되게 반영.",
     ],
   };
 }

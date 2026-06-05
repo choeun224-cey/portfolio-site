@@ -80,10 +80,10 @@ onMounted(async () => {
       },
       {
         id: 'voca-training',
-        title: 'Voca Training — AI 콜봇 트레이너',
-        summary: '"점수가 아닌 코칭"에 초점을 둔 LLM 기반 음성 롤플레이 트레이너. 벤더 중립 abstraction과 Mock 모드 등 비용·환경 의사결정 포함. (진행 중)',
-        tags: ['Vue 3', 'Gemini API', 'LLM', 'Web Speech', 'localStorage'],
-        role: '기획·디자인·풀스택 (단독)',
+        title: 'AI 콜센터 상담사 트레이닝 시스템',
+        summary: '관리자 어드민(시나리오·페르소나·평가 기준 설정)과 상담사 모바일(TlmTalk, 실시간 트레이닝)을 합친 풀시스템. Vue 3 + 사내 디자인 시스템(FS-DS) 기반으로 직접 기획·구현 중. (진행 중)',
+        tags: ['Vue 3', 'Vite', 'FS-DS', 'Vue Router', 'SCSS', 'AI 트레이닝'],
+        role: '기획·디자인·구현 (단독)',
         period: '2026.05 — 진행 중',
       },
       {
