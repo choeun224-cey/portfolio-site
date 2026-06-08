@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__inner container">
       <router-link to="/" class="header__logo">
-        JEY<span>.dev</span>
+        Eunyoung Cho<span>.dev</span>
       </router-link>
 
       <button

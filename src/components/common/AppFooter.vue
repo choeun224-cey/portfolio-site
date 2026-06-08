@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer__inner container">
       <p class="footer__copyright">
-        &copy; {{ currentYear }} JEY. All rights reserved.
+        &copy; {{ currentYear }} Eunyoung Cho. All rights reserved.
       </p>
       <div class="footer__links">
         <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>

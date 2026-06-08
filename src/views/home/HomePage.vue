@@ -6,7 +6,7 @@
         <p class="hero__greeting fade-up" style="--delay: 0">안녕하세요, 저는</p>
         <h1 class="hero__title fade-up" style="--delay: 1">
           사내 시스템을 기획·구현·운영하는 개발자<br />
-          <span class="hero__name">JEY</span>입니다.
+          <span class="hero__name">조은영</span>입니다.
         </h1>
         <p class="hero__description fade-up" style="--delay: 2">
           사내 디자인 시스템 단독 구축·운영, 자산 라이프사이클 관리,<br />

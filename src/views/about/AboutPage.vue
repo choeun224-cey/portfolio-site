@@ -14,10 +14,10 @@
       <div class="container">
         <div class="profile__card">
           <div class="profile__photo-wrap">
-            <img :src="profilePhoto" alt="JEY 프로필 사진" class="profile__photo" />
+            <img :src="profilePhoto" alt="조은영 프로필 사진" class="profile__photo" />
           </div>
           <div class="profile__body">
-            <h2 class="profile__name">JEY</h2>
+            <h2 class="profile__name">조은영</h2>
             <p class="profile__role">Frontend Developer · 사내 시스템 운영</p>
             <p class="profile__bio">
               SI 증권 프로젝트에서 웹 개발 경력을 시작하여, 구름톤 부트캠프에서
