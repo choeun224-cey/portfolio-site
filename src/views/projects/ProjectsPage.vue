@@ -55,7 +55,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
 import fsDsThumb from '@/assets/images/storybook-login.png'
 import goormthonThumb from '@/assets/images/qn-home.png'
 import hanipMapThumb from '@/assets/images/hanip-map_home.png'
@@ -63,13 +62,9 @@ import vocaTrainingThumb from '@/assets/images/training3.png'
 
 const projects = ref([])
 
-onMounted(async () => {
-  try {
-    const { data } = await axios.get('/api/projects')
-    projects.value = data
-  } catch {
-    // json-server 미실행 시 fallback
-    projects.value = [
+onMounted(() => {
+  // 정적 배포에서도 안전하도록 로컬 데이터를 직접 사용
+  projects.value = [
       {
         id: 'fs-ds',
         title: 'FS-DS 디자인 시스템',
@@ -106,8 +101,7 @@ onMounted(async () => {
         period: '2026.04',
         thumbnail: hanipMapThumb,
       },
-    ]
-  }
+  ]
 })
 </script>
 

@@ -226,7 +226,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import axios from "axios";
 import storybookAlertImg from "@/assets/images/storybook-alert.png";
 import storybookLoginImg from "@/assets/images/storybook-login.png";
 import groupHeaderImg from "@/assets/images/group-header.png";
@@ -252,23 +251,18 @@ import trainingImg from "@/assets/images/training3.png";
 const route = useRoute();
 const project = ref(null);
 
-onMounted(async () => {
+onMounted(() => {
   const id = route.params.id;
 
-  try {
-    const { data } = await axios.get(`/api/projects/${id}`);
-    project.value = data;
-  } catch {
-    // fallback 데이터
-    const fallbacks = {
-      "fs-ds": getFsDsData,
-      "voca-training": getVocaTrainingData,
-      goormthon: getGoormthonData,
-      "hanip-map": getHanipMapData,
-    };
-    if (fallbacks[id]) {
-      project.value = fallbacks[id]();
-    }
+  // 정적 배포에서도 안전하도록 로컬 데이터를 직접 사용
+  const dataById = {
+    "fs-ds": getFsDsData,
+    "voca-training": getVocaTrainingData,
+    goormthon: getGoormthonData,
+    "hanip-map": getHanipMapData,
+  };
+  if (dataById[id]) {
+    project.value = dataById[id]();
   }
 
   // API 데이터에는 이미지가 없으므로, 프로젝트별 섹션 이미지 주입
