@@ -613,10 +613,10 @@ function getVocaTrainingData() {
     id: "voca-training",
     title: "AI 콜센터 상담사 트레이닝 시스템",
     summary:
-      "관리자 어드민(시나리오·페르소나·평가 기준 설정)과 상담사 모바일(실시간 트레이닝)을 합친 풀시스템. Vue 3 + 사내 디자인 시스템(FS-DS) 기반으로 직접 기획·구현 중인 사이드 프로젝트입니다. 시장의 흔한 'AI 영업 트레이닝 SaaS'와 다르게 '점수가 아니라 코칭'에 초점을 두고, 관리자가 정교하게 시나리오·평가 기준을 설계하고 상담사가 모바일로 실시간 학습하는 일관된 흐름을 설계했습니다.",
-    role: "기획·디자인·구현 (단독)",
+      "상담사의 실시간 발화 트레이닝을 위한 AI 솔루션. 단독 POC로 시작해 핵심 인터랙션을 검증했고, 현재는 앱 개발자들과 함께 데모앱으로 고도화하며 경영진 시연을 준비하는 팀 프로젝트로 발전했습니다. 관리자 어드민(시나리오·페르소나·평가 기준 설정)과 상담사 모바일·웹으로 구성된 Dual System 구조이며, 시장의 흔한 'AI 영업 트레이닝 SaaS'와 다르게 '점수가 아니라 코칭'에 초점을 둔 평가 설계가 특징입니다.",
+    role: "기획·디자인 주도 (앱 개발자 협업)",
     period: "2026.05 — 진행 중",
-    tags: ["Vue 3", "Vite", "FS-DS (사내 DS)", "Vue Router", "SCSS", "AI 트레이닝"],
+    tags: ["Vue 3", "FS-DS (사내 DS)", "Qwen LLM", "Supertonic TTS", "SCSS", "AI 트레이닝"],
     links: {
       planning: "https://www.notion.so/voca-training-35de4090c739806296e8cedfeed23f7b",
     },
@@ -625,8 +625,8 @@ function getVocaTrainingData() {
         icon: "bi bi-flag",
         title: "프로젝트 개요",
         content: `
-          <p>실무에서 다루는 <strong>AI콜 도메인</strong>을 개인 POC로 확장하여, 콜센터 상담사 트레이닝의 <strong>풀시스템(관리자 어드민 + 상담사 모바일)</strong>을 단독 기획·구현 중입니다.</p>
-          <p>관리자가 시나리오·페르소나·평가 기준을 정교하게 설정 → 상담사가 모바일로 실시간 트레이닝하는 일관된 흐름. 두 화면이 같은 도메인 모델 위에서 동작합니다.</p>
+          <p>실무에서 다루는 <strong>AI콜 도메인</strong>을 상담사 트레이닝 서비스로 확장한 프로젝트입니다. <strong>단독 POC로 시작</strong>해 핵심 인터랙션(시나리오 진행·평가 흐름)을 검증했고, 현재는 <strong>앱 개발자들과 함께 데모앱으로 고도화</strong>하며 <strong>경영진 시연을 준비하는 단계</strong>까지 발전했습니다.</p>
+          <p>관리자가 시나리오·페르소나·평가 기준을 설정 → 상담사가 모바일로 실시간 트레이닝하는 일관된 흐름입니다. 저는 이 프로젝트의 <strong>기획을 주도</strong>하며 IA·UX 설계, 프론트엔드 구조 정의, LLM 프롬프트 규칙까지 이끌고 있습니다.</p>
           <ul>
             <li><strong>관리자 어드민</strong> — Vue 3 + 사내 디자인 시스템(FS-DS) 기반 SPA. 시나리오 메이커·교육 배포·평가 리포트 구현</li>
             <li><strong>상담사 모바일 (TlmTalk)</strong> — 실시간 트레이닝 화면. 인내심 게이지·SOS 도움말·연습/실전 모드 분리 기획</li>
@@ -760,10 +760,12 @@ onBeforeUnmount(() => host.value?.replaceChildren())
         title: "기술 스택과 의사결정",
         content: `
           <ul>
-            <li><strong>Frontend</strong> — Vue 3 (Composition API, <code>&lt;script setup&gt;</code>) + Vite + Vue Router</li>
+            <li><strong>Frontend</strong> — Vue 3 (Composition API, <code>&lt;script setup&gt;</code>) + Vite</li>
             <li><strong>UI 라이브러리</strong> — <code>@hanil-fs-web/fs-ds</code> (사내 디자인 시스템, GitHub Packages)</li>
-            <li><strong>스타일</strong> — SCSS + fs-ds 토큰(<code>$primary-500</code>, <code>@include shadow(...)</code>). Tailwind 미사용.</li>
-            <li><strong>모바일 (계획)</strong> — 동일한 Vue 3 + fs-ds 모바일 레이아웃. 시나리오·페르소나 데이터 모델 공유.</li>
+            <li><strong>LLM</strong> — Qwen 기반 LLM 연동. 추상적 답변을 막는 '발화 단위 액션 코칭' 프롬프트 규칙을 직접 수립.</li>
+            <li><strong>음성(TTS)</strong> — 자연스러운 음성을 위해 Supertonic TTS 도입(구현은 앱 개발팀, 문제 정의·도입 기획은 본인). 네트워크 오류 시 기본 TTS로 전환되는 예외 처리 기획.</li>
+            <li><strong>스타일</strong> — SCSS + fs-ds 토큰. Tailwind 미사용.</li>
+            <li><strong>모바일</strong> — 앱 개발팀과 데모앱으로 고도화 중. 시나리오·페르소나 데이터 모델 공유.</li>
           </ul>
           <p><strong>왜 사내 DS?</strong> — 본인이 구축한 자산을 직접 활용. 디자인 일관성 + 본인 자산의 메타적 검증.</p>
           <p><strong>왜 Tailwind 미사용?</strong> — 사내 표준 SCSS 토큰을 엄격히 유지하기 위함. 회사 환경 시뮬레이션의 일관성.</p>
@@ -775,9 +777,9 @@ onBeforeUnmount(() => host.value?.replaceChildren())
         content: `
           <p>현재 진행 상태:</p>
           <ul>
-            <li><strong>완료</strong> — 도메인 IA·시나리오/페르소나/평가체계 데이터 설계, 관리자 어드민 핵심 화면(시나리오 메이커·교육 배포), FS-DS Vue 통합 패턴(FsNode 래퍼), 가중치 합계 실시간 검증</li>
-            <li><strong>기획 완료, 구현 진행 예정</strong> — 상담사 모바일(TlmTalk) — 인내심 게이지·SOS 도움말·연습/실전 모드</li>
-            <li><strong>다음</strong> — 평가 리포트 화면, 모바일 구현, LLM 연동(시나리오·평가 기준 → 실제 페르소나 응답·평가), 데모 영상 녹화</li>
+            <li><strong>완료</strong> — 도메인 IA·시나리오/페르소나/평가체계 설계, 관리자 어드민 핵심 화면(시나리오 메이커·교육 배포), FS-DS Vue 통합 패턴(FsNode 래퍼), LLM(Qwen) 연동 및 '발화 단위 액션' 평가 프롬프트 규칙</li>
+            <li><strong>진행 중</strong> — 앱 개발자들과 데모앱 고도화, 상담사 모바일(인내심 게이지·SOS 도움말·연습/실전 모드)</li>
+            <li><strong>다음</strong> — 경영진 시연, 평가 리포트 화면 고도화</li>
           </ul>
         `,
       },

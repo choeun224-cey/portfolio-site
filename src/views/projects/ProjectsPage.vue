@@ -77,9 +77,9 @@ onMounted(() => {
       {
         id: 'voca-training',
         title: 'AI 콜센터 상담사 트레이닝 시스템',
-        summary: '관리자 어드민(시나리오·페르소나·평가 기준 설정)과 상담사 모바일(TlmTalk, 실시간 트레이닝)을 합친 풀시스템. Vue 3 + 사내 디자인 시스템(FS-DS) 기반으로 직접 기획·구현 중. (진행 중)',
-        tags: ['Vue 3', 'Vite', 'FS-DS', 'Vue Router', 'SCSS', 'AI 트레이닝'],
-        role: '기획·디자인·구현 (단독)',
+        summary: '상담사 실시간 발화 트레이닝 AI 솔루션. 단독 POC로 시작해 현재 앱 개발자들과 데모앱으로 고도화하며 경영진 시연을 준비 중. 관리자 어드민 + 상담사 모바일 Dual System, "점수가 아니라 코칭" 평가 설계.',
+        tags: ['Vue 3', 'FS-DS', 'Qwen LLM', 'Supertonic TTS', 'AI 트레이닝'],
+        role: '기획·디자인 주도 (앱 개발자 협업)',
         period: '2026.05 — 진행 중',
         thumbnail: vocaTrainingThumb,
       },
