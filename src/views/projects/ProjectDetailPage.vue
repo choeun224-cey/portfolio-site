@@ -880,19 +880,18 @@ function getGoormthonData() {
 function getHanipMapData() {
   return {
     id: "hanip-map",
-    title: "한입맵 — 커플 맛집 지도 PWA",
+    title: "한입맵 — 친구와 함께 쓰는 맛집 지도 PWA",
     summary:
-      "둘이서 모은 맛집을 지도에 기록하고, 다음 한 입을 찾는 커플 전용 PWA. Next.js 16 + Supabase 풀스택으로 직접 설계·배포한 사이드 프로젝트입니다.",
+      "친구와 둘이 모은 맛집을 지도에 기록하고, 위치 기반으로 다음 갈 곳을 찾는 PWA. '실사용자 2명'이라는 명확한 맥락 위에서 표준이 아니라 '우리에게 맞는 최선'을 기준으로 기능과 스코프를 결정한 개인 기획·개발 프로젝트입니다.",
     tags: [
+      "제품 기획",
+      "사용자 정의",
+      "제품 의사결정",
       "Next.js 16",
-      "React 19",
-      "TypeScript",
       "Supabase",
-      "Tailwind v4",
-      "Kakao Maps",
       "PWA",
     ],
-    role: "Full-stack Developer (단독)",
+    role: "기획 · 풀스택 개발 (단독)",
     period: "2026.04",
     links: {
       live: "https://hanip-map.vercel.app/",
@@ -901,10 +900,10 @@ function getHanipMapData() {
     sections: [
       {
         icon: "bi bi-info-circle",
-        title: "프로젝트 개요",
+        title: "문제 정의와 사용자",
         content: `
-          <p>흩어져 있던 맛집 정보(스프레드시트, 카카오맵 즐겨찾기, 메모장)를 한 곳에서 관리할 도구가 필요했습니다. <strong>둘이서 가본 곳 / 가고싶은 곳</strong>을 지도 위에서 시각적으로 파악하고, 위치 기반으로 다음 한 입을 찾을 수 있는 커플 전용 PWA를 직접 설계·구현했습니다.</p>
-          <p>실제 사용자 2명(본인 + 남자친구)을 명확히 두고, <strong>"표준이 아닌 최선"</strong>이라는 관점에서 OAuth·실시간 동기화·권한 분리 등을 모두 다시 검토했습니다.</p>
+          <p>친구와 함께 쌓은 맛집 정보가 스프레드시트·카카오맵 즐겨찾기·메모장에 흩어져 있어, "가본 곳 / 가고 싶은 곳"을 한눈에 보고 다음에 갈 곳을 고르기 어려웠습니다. 이 문제를 풀기 위한 도구를 직접 기획하고 구현했습니다.</p>
+          <p>핵심은 <strong>사용자를 '친구 2명'으로 명확히 정의</strong>한 것입니다. 불특정 다수가 아니라 실제 사용자 2명이 정해져 있으니, 일반 서비스의 관습(OAuth·실시간 동기화·사용자별 권한 분리)을 그대로 따르지 않고 <strong>"이 2명에게 정말 필요한가"</strong>를 기준으로 기능을 다시 판단할 수 있었습니다.</p>
         `,
       },
       {
@@ -944,78 +943,16 @@ function getHanipMapData() {
         ],
       },
       {
-        icon: "bi bi-stack",
-        title: "기술 스택",
-        content: `
-          <p>풀스택을 단독 진행하면서, <strong>2명 사용자 규모에 맞는 단순한 구성</strong>을 우선했습니다.</p>
-          <ul>
-            <li><strong>Frontend</strong> — Next.js 16 (App Router), React 19, TypeScript</li>
-            <li><strong>Styling</strong> — Tailwind CSS v4</li>
-            <li><strong>Map</strong> — Kakao Maps JavaScript SDK + Local API (지오코딩)</li>
-            <li><strong>Backend / DB</strong> — Supabase (PostgreSQL + Storage + Auth)</li>
-            <li><strong>Deploy</strong> — Vercel + GitHub 자동 CI/CD</li>
-            <li><strong>PWA</strong> — Next.js manifest.ts + ImageResponse API</li>
-          </ul>
-        `,
-      },
-      {
-        icon: "bi bi-pin-map",
-        title: "지도 기반 식당 관리",
-        content: `
-          <p>카카오 Places API로 식당을 검색하면 <strong>좌표·주소가 자동 수집</strong>되고, 가봤음 / 가고싶음 상태에 따라 마커 색상이 구분됩니다. 마커 클릭 시 부드러운 pan 애니메이션으로 포커스를 이동시켜 사용성을 다듬었습니다.</p>
-        `,
-      },
-      {
-        icon: "bi bi-geo-alt",
-        title: "위치 기반 가까운 맛집 찾기",
-        content: `
-          <p>HTML5 Geolocation API로 현재 위치를 받아온 뒤 <strong>Haversine 공식</strong>으로 식당과의 거리를 계산하고, 사이드바에 km/m 단위로 거리순 정렬 결과를 표시합니다.</p>
-          <p>현재 위치 마커는 <strong>펄싱 애니메이션</strong>으로 시각화하여 자기 위치를 한눈에 확인할 수 있게 했습니다.</p>
-        `,
-      },
-      {
-        icon: "bi bi-file-earmark-spreadsheet",
-        title: "구글 시트 일괄 마이그레이션",
-        content: `
-          <p>기존에 따로 정리해두던 <strong>스프레드시트 300+ 행</strong>을 한 번에 임포트할 수 있는 마이그레이션 도구를 만들었습니다.</p>
-          <ul>
-            <li>시트엔 좌표 정보가 없어, <strong>카카오 Local API로 자동 지오코딩</strong></li>
-            <li>검색 결과 주소를 기준으로 <strong>권역(서울/경기/지방) 자동 판별</strong></li>
-            <li>미리보기 화면에서 매칭 결과 검수 후 <strong>일괄 저장</strong></li>
-          </ul>
-        `,
-      },
-      {
-        icon: "bi bi-search",
-        title: "통합 검색 + 다중 필터",
-        content: `
-          <p>이름·주소·메모·카테고리·태그를 동시에 검색하는 <strong>across-field 검색</strong>과 권역·카테고리·방문여부를 AND 조합하는 다중 필터를 구현했습니다.</p>
-          <p>클라이언트 사이드 필터링으로 처리하여 <strong>300건 기준 10ms 이하</strong>의 즉각적인 응답성을 확보했습니다.</p>
-        `,
-      },
-      {
-        icon: "bi bi-phone",
-        title: "PWA 설치 지원",
-        content: `
-          <p>Web App Manifest로 홈 화면 설치를 지원하고, <strong>Next.js 16의 ImageResponse API</strong>로 32/180/192/512 다중 사이즈 아이콘을 빌드 타임에 동적 생성했습니다.</p>
-          <ul>
-            <li>풀스크린 standalone 모드, 테마 컬러 적용</li>
-            <li>iOS apple-touch-icon 별도 처리</li>
-            <li>핀 + 젓가락 SVG 로고로 favicon · OG image · PWA icon 통일</li>
-          </ul>
-        `,
-      },
-      {
         icon: "bi bi-diagram-3",
-        title: "아키텍처 결정 — 표준이 아닌 최선",
+        title: "제품 의사결정 — 표준이 아닌 '우리에게 맞는 최선'",
         content: `
-          <p>2명 사용자 폐쇄 앱이라는 명확한 컨텍스트 위에서, "관습적으로 이렇게 한다"가 아니라 <strong>실제 사용 시나리오와 유지보수 비용</strong>을 기준으로 판단했습니다.</p>
+          <p>기획에서 가장 신경 쓴 부분입니다. "관습적으로 이렇게 한다"가 아니라 <strong>실제 사용 시나리오와 유지보수 비용</strong>을 기준으로, <strong>넣지 않을 것을 정하는 스코프 결정</strong>을 내렸습니다.</p>
         `,
         featureCards: [
           {
             icon: "bi bi-people",
             title: "단일 공유 데이터 모델",
-            desc: "사용자별 별점·방문여부 분리 X. 데이터 구분은 입력 마찰만 늘리며, '우리의 식당 일기장' 컨셉에는 합의된 단일 별점/메모가 더 잘 맞는다고 판단.",
+            desc: "사용자별 별점·방문여부를 분리하지 않음. 데이터를 나누면 입력 마찰만 늘고, '친구 둘의 공용 맛집 리스트'에는 합의된 단일 별점·메모가 더 맞는다고 판단.",
           },
           {
             icon: "bi bi-key",
@@ -1025,69 +962,43 @@ function getHanipMapData() {
           {
             icon: "bi bi-arrow-clockwise",
             title: "Realtime 대신 명시적 새로고침",
-            desc: "Supabase Realtime 구독은 가능했지만 동시 사용 빈도가 낮아 복잡도 비용이 더 큼. 사용성 손실 없이 유지보수 부담 절감.",
+            desc: "실시간 동기화는 가능했지만 둘이 동시에 쓰는 빈도가 낮아 복잡도 비용이 더 컸음. 사용성 손실 없이 유지보수 부담을 덜어냄.",
           },
         ],
       },
       {
-        icon: "bi bi-bug",
-        title: "트러블슈팅",
+        icon: "bi bi-list-check",
+        title: "핵심 기능과 우선순위",
         content: `
-          <p>외부 SDK·OAuth·Supabase 통합 과정에서 마주친 이슈들을 분석하고, 우회 또는 구조 변경으로 해결했습니다.</p>
+          <p>"기록하고 → 찾고 → 옮겨오는" 실제 사용 흐름을 기준으로 기능 우선순위를 잡았습니다.</p>
+          <ul>
+            <li><strong>지도 기반 기록</strong> — 카카오 검색으로 좌표·주소 자동 수집, 가봤음/가고싶음 상태별 마커 색 구분</li>
+            <li><strong>위치 기반 찾기</strong> — 현재 위치에서 가까운 순으로 정렬해 "지금 근처에 갈 곳" 탐색</li>
+            <li><strong>기존 데이터 이관</strong> — 스프레드시트 300+ 행을 자동 지오코딩·권역 판별로 일괄 마이그레이션</li>
+            <li><strong>통합 검색·필터</strong> — 이름·주소·메모·카테고리·태그 통합 검색 + 권역·방문여부 다중 필터</li>
+          </ul>
+          <p>특히 <strong>기존 데이터 이관을 최우선</strong>으로 올린 건, "이미 쌓아둔 300곳을 옮기지 못하면 아무도 안 쓴다"는 사용자 관점의 판단이었습니다. 기능 우선순위를 기술 난이도가 아니라 <strong>진입장벽 기준</strong>으로 잡은 사례입니다.</p>
         `,
-        featureCards: [
-          {
-            icon: "bi bi-exclamation-triangle",
-            title: "Kakao SDK Production 빌드 실패",
-            desc: "dev에서는 통과했지만 Vercel production에서 'Cannot find namespace kakao' 에러. 원인은 module scope 선언 → 별도 ambient 선언 파일(kakao.d.ts)을 declare global로 분리하여 해결.",
-          },
-          {
-            icon: "bi bi-shield-x",
-            title: "Supabase Kakao default scope 충돌",
-            desc: "Supabase GoTrue 코드에 카카오 provider의 기본 scope(account_email 포함)가 하드코딩되어 KOE205 에러 발생. 라이브러리 추상화의 한계를 인식하고 Google OAuth로 우회 → 최종 email/password로 단순화.",
-          },
-          {
-            icon: "bi bi-link-45deg",
-            title: "Kakao redirect URI 등록",
-            desc: "JavaScript 키와 REST API 키별로 redirect URI 등록이 분리됨을 발견. Supabase는 server-side flow라 REST API 키 쪽 등록이 필수. 공식 문서에 명시되지 않은 플랫폼별 차이를 직접 확인.",
-          },
-          {
-            icon: "bi bi-window",
-            title: "Dialog 시스템 자체 구현",
-            desc: "브라우저 alert/confirm은 OS마다 다르게 보여 디자인 일관성 깨짐. React Context + Promise 기반 커스텀 useDialog hook을 30줄 이내로 자체 구현. 외부 라이브러리 의존성 제거.",
-          },
-        ],
       },
       {
-        icon: "bi bi-database",
-        title: "데이터 모델",
+        icon: "bi bi-stack",
+        title: "기술 — 기획한 것을 직접 구현",
         content: `
-          <p>단일 restaurants 테이블로 시작하되, <strong>좌표 인덱스</strong>를 두어 추후 지도 영역 기반 쿼리로 확장 가능하게 설계했습니다.</p>
-          <pre><code>restaurants (
-  id uuid PRIMARY KEY,
-  name text,
-  address text,
-  region text,        -- 강남, 홍대 등 세부 지역
-  area text,          -- 서울/경기/지방
-  category text,      -- 한식/양식/카페 등
-  memo text,
-  visited boolean,
-  rating smallint,    -- 1~5
-  lat double precision,
-  lng double precision,
-  tags text[],
-  photos text[],      -- Supabase Storage URLs
-  created_at timestamptz
-)</code></pre>
+          <p>기획만 한 게 아니라 <strong>프론트·DB·인증·배포까지 풀스택을 단독으로</strong> 구현해, 기획한 것을 실제 동작하는 서비스로 만들었습니다.</p>
+          <ul>
+            <li>Next.js 16 · React 19 · TypeScript · Tailwind v4</li>
+            <li>Supabase(PostgreSQL·Storage·Auth) · Vercel 자동 배포</li>
+            <li>Kakao Maps SDK + Local API(지오코딩) · PWA 홈화면 설치</li>
+          </ul>
+          <p>외부 SDK·OAuth 통합에서 막힌 이슈들은 우회하거나 구조를 바꿔 해결했습니다. 이 '개발까지 되는' 점이, 개발자와 같은 언어로 대화하며 기획하는 데 그대로 힘이 됩니다.</p>
         `,
       },
     ],
     takeaways: [
-      '"표준 = 최선"이 아니라는 점을 체감했습니다. 사용자 규모(2명)·사용 빈도·보안 요구를 균형 있게 보고, 관습 대신 실제 컨텍스트에 맞는 설계를 선택했습니다.',
-      "외부 라이브러리의 추상화 레이어가 항상 충분히 유연하지 않다는 것을 Supabase + Kakao 통합에서 직접 경험했고, 막힐 때 우회 경로를 빠르게 검토하는 판단력을 키웠습니다.",
-      "Next.js 16의 새로운 메타데이터 컨벤션(manifest.ts, icon.tsx, opengraph-image.tsx)과 ImageResponse API를 활용해 빌드 타임 이미지 동적 생성을 익혔습니다.",
-      "프론트엔드뿐 아니라 DB 스키마·Storage·Auth·배포까지 풀스택을 단독 진행하면서, 시스템 전체를 조망하는 시야를 갖추게 되었습니다.",
-      "복잡한 기능보다 사용성을 우선하는 단순화 결정(데이터 분리 X, 실시간 동기화 X, 양방향 시트 동기화 X)이 결국 더 좋은 사용 경험을 만든다는 것을 배웠습니다.",
+      "불특정 다수가 아니라 '실사용자 2명'으로 타깃을 명확히 정의하니, 넣을 기능과 뺄 기능(스코프)이 선명해졌습니다. 사용자 정의가 기획의 출발점이라는 걸 체득.",
+      "'표준 = 최선'이 아니라는 걸 체감. 관습(OAuth·실시간 동기화)을 사용자 맥락에 비춰 덜어내는 결정이 오히려 더 좋은 경험을 만들었습니다.",
+      "'기존 300곳 이관'을 최우선으로 둔 것처럼, 기능 우선순위를 기술 난이도가 아니라 사용자 진입장벽 기준으로 판단했습니다.",
+      "기획한 것을 직접 풀스택으로 구현해봤기에, 개발자와 API·데이터·예외처리를 같은 언어로 이야기할 수 있습니다.",
     ],
   };
 }
