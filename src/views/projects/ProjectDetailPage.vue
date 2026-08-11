@@ -711,7 +711,7 @@ function getVocaTrainingData() {
         title: "멀티 LLM 비교·선정과 벤더 중립 구조",
         content: `
           <p>AI 고객과 채점의 품질은 LLM에 크게 좌우되기 때문에, <strong>여러 LLM을 실제로 붙여 비교·선정</strong>했습니다. 호출은 <strong>벤더 중립 프록시</strong> 한 곳을 거치게 해(OpenAI 호환·Anthropic 분기, 한국어 강제, thinking 토큰 제거 등) 모델 교체가 코드 변경 없이 되도록 설계했습니다.</p>
-          <p>여러 모델을 정량·정성으로 비교한 결과를 문서로 정리했고, <strong>현재는 DeepSeek 계열 모델을 적용</strong> 중입니다. 음성은 <strong>사내 TTS/STT</strong>를 쓰되 네트워크 오류 시 기본 TTS로 전환되는 폴백을 기획했습니다. (음성 연동 구현은 앱 개발팀, 문제 정의와 규칙 설계는 본인)</p>
+          <p>여러 모델을 정량·정성으로 비교한 끝에 <strong>Gemini로 확정</strong>해 적용 중입니다. 음성은 <strong>Supertonic TTS</strong>를 도입하되 네트워크 오류 시 기본 TTS로 전환되는 폴백을 기획했습니다. (음성 연동 구현은 앱 개발팀, 문제 정의와 규칙 설계는 본인)</p>
         `,
       },
       {
@@ -721,7 +721,7 @@ function getVocaTrainingData() {
           <ul>
             <li><strong>관리자 콘솔</strong> — 시나리오 메이커·교육 배포·훈련 정책·훈련 현황·리포트·계정 등 6+ 화면 (Vue 3 + 사내 디자인 시스템 FS-DS)</li>
             <li><strong>상담사 웹</strong> — 실시간 롤플레잉과 음성 통화(턴 기반) 듀얼 셸</li>
-            <li><strong>모바일 앱</strong> — iOS·Android 데모앱(앱 개발팀), 사내 TTS 탑재</li>
+            <li><strong>모바일 앱</strong> — iOS·Android 데모앱(앱 개발팀), Supertonic TTS 탑재</li>
             <li><strong>백엔드</strong> — 도메인팩·시나리오·배포 저장 (PostgreSQL)</li>
           </ul>
           <p>제가 단독으로 만든 <strong>사내 디자인 시스템(FS-DS)</strong>을 이 프로젝트에 직접 적용해, 본인 자산이 실제로 운영 가능한지 검증하는 메타 사례이기도 합니다.</p>
