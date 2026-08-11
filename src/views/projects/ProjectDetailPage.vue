@@ -613,10 +613,10 @@ function getVocaTrainingData() {
     id: "voca-training",
     title: "AI 콜센터 상담사 트레이닝 시스템",
     summary:
-      "상담사의 실시간 발화 트레이닝을 위한 AI 솔루션. 단독 POC로 시작해 핵심 인터랙션을 검증했고, 현재는 앱 개발자들과 함께 데모앱으로 고도화하며 경영진 시연을 준비하는 팀 프로젝트로 발전했습니다. 관리자 어드민(시나리오·페르소나·평가 기준 설정)과 상담사 모바일·웹으로 구성된 Dual System 구조이며, 시장의 흔한 'AI 영업 트레이닝 SaaS'와 다르게 '점수가 아니라 코칭'에 초점을 둔 평가 설계가 특징입니다.",
-    role: "기획·디자인 주도 (앱 개발자 협업)",
-    period: "2026.05 — 진행 중",
-    tags: ["Vue 3", "FS-DS (사내 DS)", "Qwen LLM", "Supertonic TTS", "SCSS", "AI 트레이닝"],
+      "보험 TM 상담사가 AI 가상 고객과 실시간으로 롤플레잉하며 발화 단위 코칭을 받는 트레이닝 시스템. 실녹취 약 3.6만 콜을 분석해 'AI 고객이 고객다워지는' 설계 기준을 세우고, 관리자 콘솔·상담사 웹·모바일 앱으로 이어지는 서비스를 기획했습니다. 사내 POC로, 기획과 웹은 단독으로 맡고 앱·서버 개발자와 협업하며 경영진 시연과 사업화 검토를 향해 고도화 중입니다.",
+    role: "서비스 기획 · 웹 개발 (앱·서버 개발자 협업)",
+    period: "2026.06 — 진행 중 (POC 1차)",
+    tags: ["서비스 기획", "데이터 기반 설계", "LLM 프롬프트 설계", "IA/UX", "Vue 3", "보험 TM"],
     links: {
       planning: "https://www.notion.so/voca-training-35de4090c739806296e8cedfeed23f7b",
     },
@@ -625,171 +625,127 @@ function getVocaTrainingData() {
         icon: "bi bi-flag",
         title: "프로젝트 개요",
         content: `
-          <p>실무에서 다루는 <strong>AI콜 도메인</strong>을 상담사 트레이닝 서비스로 확장한 프로젝트입니다. <strong>단독 POC로 시작</strong>해 핵심 인터랙션(시나리오 진행·평가 흐름)을 검증했고, 현재는 <strong>앱 개발자들과 함께 데모앱으로 고도화</strong>하며 <strong>경영진 시연을 준비하는 단계</strong>까지 발전했습니다.</p>
-          <p>관리자가 시나리오·페르소나·평가 기준을 설정 → 상담사가 모바일로 실시간 트레이닝하는 일관된 흐름입니다. 저는 이 프로젝트의 <strong>기획을 주도</strong>하며 IA·UX 설계, 프론트엔드 구조 정의, LLM 프롬프트 규칙까지 이끌고 있습니다.</p>
+          <p>보험 TM 상담사의 실전 감각을 키우기 위해, <strong>AI 가상 고객과 실시간으로 롤플레잉</strong>하고 통화가 끝나면 <strong>발화 단위로 코칭</strong>받는 트레이닝 시스템입니다. 실무의 AI콜 도메인을 사내 POC로 확장한 프로젝트입니다.</p>
+          <p>단독 POC로 시작해 핵심 인터랙션을 검증했고, 현재는 <strong>앱 개발자(iOS·Android)와 협업해 데모앱까지 완성</strong>, 경영진 시연과 사업화 검토를 향해 고도화 중입니다. 저는 이 프로젝트에서 <strong>서비스 기획과 관리자·상담사 웹 개발을 단독으로</strong> 맡고 있습니다.</p>
           <ul>
-            <li><strong>관리자 어드민</strong> — Vue 3 + 사내 디자인 시스템(FS-DS) 기반 SPA. 시나리오 메이커·교육 배포·평가 리포트 구현</li>
-            <li><strong>상담사 모바일 (TlmTalk)</strong> — 실시간 트레이닝 화면. 인내심 게이지·SOS 도움말·연습/실전 모드 분리 기획</li>
+            <li><strong>구성</strong> — 관리자 콘솔 + 상담사 웹 + 모바일 앱(iOS·Android)의 다중 클라이언트 구조</li>
+            <li><strong>팀</strong> — 기획·웹 1명(본인) / 앱 2명 / 서버 1명(2차 투입). 2차에 실시간 음성 대화 서버 개발 예정</li>
           </ul>
         `,
       },
       {
-        icon: "bi bi-bullseye",
-        title: "시장의 한계와 차별화 의도",
+        icon: "bi bi-database",
+        title: "데이터 기반 기획 — 실녹취 3.6만 콜 분석",
         content: `
-          <p>기존 'AI 영업 트레이닝 SaaS'들은 통화가 끝나면 보통 <strong>점수만 보여주고 끝납니다</strong>. "84점입니다." 사용자는 "왜 84점이지? 어디서 깎였지? 다음엔 뭘 해야 하지?"를 모르니까 트레이닝 효과가 떨어집니다.</p>
-          <p>그래서 LLM 평가 시스템을 다르게 설계했습니다. <strong>점수가 아니라 코칭</strong>을 주는 트레이너로요.</p>
+          <p>가장 공들인 부분은 <strong>"AI 고객이 왜 고객답지 않은가"를 데이터로 규명</strong>한 것입니다. 실제 상담 통화가 쌓인 PostgreSQL을 읽기 전용으로 집계해 <strong>약 36,360콜, STT 세그먼트 180만+ 건</strong>을 분석했습니다.</p>
+          <p>핵심 발견은, 실제 고객 발화가 <strong>평균 8.4자·중앙값 3자, 5자 이하가 64.6%</strong>라는 점이었습니다. 실제 통화는 짧은 수신 확인과 되묻기의 리듬인데 기존 AI는 매번 완성된 문장과 후속 질문을 만들어 '고객답지 않았다'는 걸 확인했습니다.</p>
+          <p>이 진단을 바탕으로 생성 정책을 <strong>v2로 재설계</strong>했습니다 — <em>직전 상담사 행동 파악 → 고객 반응행동 하나 선택 → 짧은 대사 생성 → 상태 판정</em> 순서로. '말투 예시를 늘리는' 접근이 아니라 <strong>통화 리듬 자체를 데이터에 맞춘</strong> 설계입니다.</p>
         `,
+        comparison: [
+          { label: "분석 통화", before: "—", after: "약 36,360콜" },
+          { label: "STT 세그먼트", before: "—", after: "183만+ 건" },
+          { label: "고객 발화 평균", before: "—", after: "8.4자 (중앙값 3자)" },
+          { label: "5자 이하 비중", before: "—", after: "64.6%" },
+        ],
       },
       {
-        icon: "bi bi-diagram-2",
-        title: "정보 구조와 데이터 기획을 먼저 정리하다",
+        icon: "bi bi-bar-chart-steps",
+        title: "난이도 설계 — 접점(터치포인트) 사다리 Lv1~5",
         content: `
-          <p>화면 구현 이전에 <strong>도메인 정보 구조(IA)</strong>를 먼저 정리했습니다. 시나리오 6종(신규영업·업셀·거절처리·컴플레인·가격민감·가족상의)과 페르소나 6종(연령·직업·가족력·태도까지 정의된 가상 고객)을 직접 기획하고, 각 시나리오별 <strong>학습 목표·체크리스트·평가 기준</strong>을 별도로 설계했습니다.</p>
-          <p>이러한 기획 산출물은 <strong>프로젝트 정의서·요구사항 정의서</strong>로 정리되어 외부 이해관계자와의 정렬에 사용 가능한 수준으로 작성했으며, 노션 페이지로 공유 가능합니다. "코드보다 도메인 사고가 먼저"라는 원칙을 직접 실행한 사례입니다.</p>
+          <p>난이도를 '까칠한 성격'처럼 추상적으로 두지 않고, <strong>"고객과 어떤 접점에서 만난 통화인가"</strong>로 설계했습니다. 접점이 정해지면 tone·인내심·발화속도·되묻기 수위가 자연스럽게 파생됩니다. '이유 없는 진상'은 없고, 최고 난이도도 "지쳐서 차가운" 현실적 고객입니다.</p>
+        `,
+        specTable: {
+          columns: ["Lv", "접점 (아웃바운드)", "고객 성격"],
+          rows: [
+            ["<strong>1</strong>", "예약 상담 — 고객이 신청한 콜백", "기다리던 전화, 협조적"],
+            ["<strong>2</strong>", "관심 고객 — 자료 요청·이벤트 이력", "들어주지만 확신 없음"],
+            ["<strong>3</strong>", "기존 고객 — 예상 밖 전화", "바쁨, 용건부터"],
+            ["<strong>4</strong>", "신규 콜드콜 — 접점 없음", "번호 출처부터 의심"],
+            ["<strong>5</strong>", "지친 콜드콜 — 권유에 지침", "차갑고 건조(무례하진 않음)"],
+          ],
+        },
+      },
+      {
+        icon: "bi bi-shield-lock",
+        title: "정답 유출 방지 — 정보 통제 설계",
+        content: `
+          <p>롤플레잉의 핵심 함정은 <strong>AI 고객이 정답을 흘리거나 채점자처럼 구는 것</strong>입니다. 상담사의 목표나 정답 경로를 고객 프롬프트에 넣으면, 고객이 독립적인 사람이 아니라 '훈련생을 도와주는 조력자'처럼 행동합니다.</p>
+          <p>그래서 <strong>상담사 목표(goal)를 프롬프트에서 제외</strong>하고, 시나리오 라벨은 '비공개 내부 설정'으로만 주입했습니다. 실제로 상담사가 "누구세요?"만 물었는데 AI 고객이 "운전자보험이요?"라고 먼저 발설하던 문제를, <em>"상담사가 먼저 밝히기 전엔 상품·용건을 모른다"</em>는 규칙으로 차단했습니다. 관찰된 실패를 규칙으로 되돌리는 방식으로 리얼리즘을 끌어올렸습니다.</p>
         `,
       },
       {
         icon: "bi bi-grid-1x2",
         title: "관리자 어드민 — AI 시나리오 메이커",
         content: `
-          <p>관리자가 AI 가상 고객과의 실시간 롤플레잉 훈련을 세팅하는 화면. <strong>3단계 스텝퍼</strong>(기본 정보 → 페르소나 설정 → 평가 기준 설정)로 복잡한 설정을 단계별로 분리했습니다.</p>
-          <p>가장 정교한 부분은 <strong>LLM 실시간 평가 미션</strong>의 동적 폼. 관리자가 미션별 가중치를 자유롭게 추가/삭제하고, <strong>합계 100점 강제 검증</strong>이 실시간으로 동작합니다. 합계가 100이면 초록색 Tag로 성공 피드백, 미달·초과 시 다른 색으로 즉시 알림.</p>
+          <p>관리자가 AI 가상 고객 훈련을 세팅하는 화면. <strong>3단계 스텝퍼</strong>(기본 정보 → 페르소나 설정 → 평가 기준)로 복잡한 설정을 단계별로 분리했습니다.</p>
+          <p>가장 정교한 부분은 <strong>평가 미션의 동적 폼</strong>. 관리자가 미션별 가중치를 자유롭게 추가/삭제하고, <strong>합계 100점 강제 검증</strong>이 실시간으로 동작합니다.</p>
         `,
         featureCards: [
           {
             icon: "bi bi-list-ol",
             title: "3단계 스텝퍼 UX",
-            desc: "기본 정보 → 페르소나 설정 → 평가 기준의 단계별 분리. 이전 단계는 done, 현재는 active, 이후는 ready로 자동 렌더.",
+            desc: "기본 정보 → 페르소나 → 평가 기준의 단계별 분리로 설정의 인지 부하를 낮춤.",
           },
           {
             icon: "bi bi-sliders",
-            title: "페르소나 정교한 설정",
-            desc: "성별·연령대 Select, 인내심 게이지 Radio 그룹, 첫 반응 프롬프트 textarea로 페르소나 행동 패턴 세밀 제어.",
+            title: "페르소나 정교 설정",
+            desc: "연령·직업·태도와 접점 레벨까지 정의해 고객 행동 패턴을 세밀하게 제어.",
           },
           {
             icon: "bi bi-calculator",
             title: "가중치 합계 실시간 검증",
-            desc: "computed로 가중치 합계 실시간 계산. 100점이면 초록 Tag로 성공 피드백, 아니면 색상 변화로 즉시 알림.",
+            desc: "미션별 가중치 합계를 실시간 계산해 100점이 아니면 즉시 경고.",
           },
         ],
       },
       {
-        icon: "bi bi-arrow-left-right",
-        title: "관리자 어드민 — 교육 배포 (Dual-list UI)",
+        icon: "bi bi-clipboard-check",
+        title: "채점 체계와 거절 대응 훈련",
         content: `
-          <p>생성된 시나리오를 특정 상담사 조직에 할당하는 <strong>4단계 세로형 워크플로우</strong>. 핵심은 <strong>Dual-list UI</strong>로 좌측(전체 상담사) → 우측(배포 대상) 사이를 ⟶/⟵ 버튼으로 이동시키는 패턴.</p>
-          <p>일정 및 통과 점수 설정은 native <code>&lt;input type="range"&gt;</code>를 fs-ds SCSS 토큰(<code>--primary-500</code>)으로 스타일링하고, 선택한 점수는 <code>ProgressBar</code>로 시각 피드백. fs-ds에 Range Slider가 없는 한계를 토큰 통일성으로 우회한 사례입니다.</p>
-        `,
-      },
-      {
-        icon: "bi bi-phone",
-        title: "상담사 모바일 — TlmTalk (기획 완료)",
-        content: `
-          <p>관리자가 설정한 시나리오를 상담사가 실제로 학습하는 <strong>실시간 트레이닝 모바일 화면</strong>. 현재 화면 컨셉 기획 완료, 구현 진행 예정.</p>
-          <p>핵심 기획 의도는 <strong>학습자의 인지 부하를 단계적으로 분리</strong>한 것입니다. 초보자는 정답을 보고 따라하고, 익숙해지면 실전 모드로 넘어가는 학습 곡선 설계.</p>
-        `,
-        featureCards: [
-          {
-            icon: "bi bi-heart-pulse",
-            title: "인내심 게이지 — 페르소나 감정 시각화",
-            desc: "0~100% 게이지로 페르소나의 현재 인내심을 실시간 정량 시각화. 상담사가 \"지금 고객이 어떻게 느끼는지\"를 직관적으로 파악 가능.",
-            example: "83% · 여유 있음",
-          },
-          {
-            icon: "bi bi-arrow-repeat",
-            title: "연습 / 실전 모드 분리",
-            desc: "학습 단계별 UX 분리. 연습 모드는 정답 가이드 제공, 실전 모드는 자유 응답. 학습자 인지 부하를 단계적으로 늘려가는 사고.",
-          },
-          {
-            icon: "bi bi-lightbulb-fill",
-            title: "SOS 도움말 — 추천 화법",
-            desc: '"바쁘신데 죄송합니다"라고 공감해 주세요\' 같은 발화 단위 가이드. 점수가 아닌 직접 실행 가능한 액션을 제공.',
-          },
-        ],
-      },
-      {
-        icon: "bi bi-lightbulb",
-        title: "차별화 ① — 점수가 아닌 코칭",
-        content: `
-          <p>기존 AI 영업 트레이닝 SaaS들은 통화 끝나면 "84점입니다" 같은 점수만 주고 끝. 사용자는 "왜 그 점수인지, 다음엔 뭘 바꿔야 하는지" 모르니까 트레이닝 효과가 떨어집니다.</p>
-          <p>모바일의 <strong>SOS 도움말 패턴</strong>이 이 차별화의 정수. 단순 점수 표시가 아니라 <strong>"고객님이 운전 중이시군요. 먼저 '바쁘신데 죄송합니다'라고 공감해 주세요"</strong> 같은 발화 단위 액션을 직접 제시합니다. "추천 화법대로 말해보기" 버튼으로 사용자가 즉시 실행 가능.</p>
-          <p>LLM 평가 시스템에도 같은 사고를 적용 — 시스템 프롬프트에 <strong>"추상 조언 금지" 규칙</strong>을 명시해서 "공감을 더" 같은 형식적 답을 못 하게 막고, 반드시 근거 발화 인용 + 발화 단위 액션으로만 답하게 강제.</p>
+          <p>평가는 <strong>미션·keyPoints 기반 LLM 채점</strong>으로 설계했습니다. 점수만 주는 게 아니라 <strong>근거가 된 실제 발화를 인용하고, 다음 통화에서 바로 쓸 수 있는 발화 단위 액션</strong>을 주도록 프롬프트 규칙을 세웠습니다("추상 조언 금지").</p>
+          <p>보험 TM에서 가장 중요한 <strong>거절 대응</strong>은 별도로 파고들어, <strong>거절 유형 8종의 정답 발화 대본</strong>과 Lv.5 훅 조건까지 도메인 산출물로 정리했습니다.</p>
         `,
       },
       {
         icon: "bi bi-diagram-3",
-        title: "차별화 ② — 사내 디자인 시스템(FS-DS) Vue 통합",
+        title: "멀티 LLM 비교·선정과 벤더 중립 구조",
         content: `
-          <p>본 프로젝트의 가장 특별한 점은 <strong>본인이 한일네트웍스에서 단독으로 구축한 사내 디자인 시스템(FS-DS)을 직접 활용</strong>했다는 점입니다. 본인 자산을 본인이 다른 프로젝트에서 재활용한 메타 사례.</p>
-          <p>다만 fs-ds는 <strong>프레임워크 비종속 Vanilla JS factory 함수</strong>(<code>const el = Button(options)</code>처럼 DOM 노드를 반환)라 Vue 컴포넌트가 아닙니다. Vue 템플릿에 <code>&lt;Button&gt;</code>처럼 쓸 수 없고 <code>v-model</code>도 직접 못 걸어요. 이 한계를 <strong>FsNode 공용 래퍼</strong>로 해결.</p>
-        `,
-        code: `// FsNode.vue — Vue 컴포지션 API 안에서
-//                Vanilla JS factory(fs-ds)를 마운트하는 공용 래퍼
-const props = defineProps({
-  factory: { type: Function, required: true },  // fs-ds 함수 (예: Button)
-  options: { type: Object, default: () => ({}) },
-})
-
-const host = ref(null)
-function render() {
-  host.value?.replaceChildren()
-  host.value?.appendChild(props.factory({ ...props.options }))
-}
-onMounted(render)
-watch(() => props.options, render)
-onBeforeUnmount(() => host.value?.replaceChildren())
-
-// 사용 (Vue 템플릿 안에서)
-// FsNode 컴포넌트에 factory와 options를 prop으로 전달
-//   factory: Button (fs-ds의 함수)
-//   options: { children: '저장', variant: 'solid', onClick: save }`,
-        codeLabel: "Vanilla JS factory를 Vue Composition API에 통합",
-      },
-      {
-        icon: "bi bi-bullseye",
-        title: "차별화 ③ — 학습 단계별 UX (연습/실전 모드)",
-        content: `
-          <p>모바일 화면 상단의 <strong>연습 모드 / 실전 모드 토글</strong>이 의도적 기획 결정. 단순 기능 분리가 아니라 <strong>학습자의 인지 부하를 단계별로 늘려가는 UX 사고</strong>를 반영했습니다.</p>
-          <p>연습 모드에서는 SOS 도움말이 항상 활성화되어 추천 화법을 제공하고, "추천 화법대로 말해보기" 버튼으로 직접 실행 유도. 실전 모드에서는 도움말 없이 자유 응답으로 전환되어 실전 감각 학습.</p>
-          <p>또한 화면 하단의 <strong>"자신 있어요 → 실전 모드로 가기"</strong> CTA로 학습자의 자발적 전환을 유도. 강제 전환이 아닌 학습자 자율성을 존중한 설계입니다.</p>
+          <p>AI 고객과 채점의 품질은 LLM에 크게 좌우되기 때문에, <strong>여러 LLM을 실제로 붙여 비교·선정</strong>했습니다. 호출은 <strong>벤더 중립 프록시</strong> 한 곳을 거치게 해(OpenAI 호환·Anthropic 분기, 한국어 강제, thinking 토큰 제거 등) 모델 교체가 코드 변경 없이 되도록 설계했습니다.</p>
+          <p>여러 모델을 정량·정성으로 비교한 결과를 문서로 정리했고, <strong>현재는 DeepSeek 계열 모델을 적용</strong> 중입니다. 음성은 <strong>사내 TTS/STT</strong>를 쓰되 네트워크 오류 시 기본 TTS로 전환되는 폴백을 기획했습니다. (음성 연동 구현은 앱 개발팀, 문제 정의와 규칙 설계는 본인)</p>
         `,
       },
       {
         icon: "bi bi-stack",
-        title: "기술 스택과 의사결정",
+        title: "구현 범위와 기술",
         content: `
           <ul>
-            <li><strong>Frontend</strong> — Vue 3 (Composition API, <code>&lt;script setup&gt;</code>) + Vite</li>
-            <li><strong>UI 라이브러리</strong> — <code>@hanil-fs-web/fs-ds</code> (사내 디자인 시스템, GitHub Packages)</li>
-            <li><strong>LLM</strong> — Qwen 기반 LLM 연동. 추상적 답변을 막는 '발화 단위 액션 코칭' 프롬프트 규칙을 직접 수립.</li>
-            <li><strong>음성(TTS)</strong> — 자연스러운 음성을 위해 Supertonic TTS 도입(구현은 앱 개발팀, 문제 정의·도입 기획은 본인). 네트워크 오류 시 기본 TTS로 전환되는 예외 처리 기획.</li>
-            <li><strong>스타일</strong> — SCSS + fs-ds 토큰. Tailwind 미사용.</li>
-            <li><strong>모바일</strong> — 앱 개발팀과 데모앱으로 고도화 중. 시나리오·페르소나 데이터 모델 공유.</li>
+            <li><strong>관리자 콘솔</strong> — 시나리오 메이커·교육 배포·훈련 정책·훈련 현황·리포트·계정 등 6+ 화면 (Vue 3 + 사내 디자인 시스템 FS-DS)</li>
+            <li><strong>상담사 웹</strong> — 실시간 롤플레잉과 음성 통화(턴 기반) 듀얼 셸</li>
+            <li><strong>모바일 앱</strong> — iOS·Android 데모앱(앱 개발팀), 사내 TTS 탑재</li>
+            <li><strong>백엔드</strong> — 도메인팩·시나리오·배포 저장 (PostgreSQL)</li>
           </ul>
-          <p><strong>왜 사내 DS?</strong> — 본인이 구축한 자산을 직접 활용. 디자인 일관성 + 본인 자산의 메타적 검증.</p>
-          <p><strong>왜 Tailwind 미사용?</strong> — 사내 표준 SCSS 토큰을 엄격히 유지하기 위함. 회사 환경 시뮬레이션의 일관성.</p>
+          <p>제가 단독으로 만든 <strong>사내 디자인 시스템(FS-DS)</strong>을 이 프로젝트에 직접 적용해, 본인 자산이 실제로 운영 가능한지 검증하는 메타 사례이기도 합니다.</p>
         `,
       },
       {
         icon: "bi bi-signpost-2",
-        title: "진행 현황 및 다음 단계",
+        title: "진행 현황 및 로드맵",
         content: `
-          <p>현재 진행 상태:</p>
+          <p>사내 POC로 <strong>1차(데모 구축)</strong>가 마무리 단계입니다 (1차 진척 약 85%).</p>
           <ul>
-            <li><strong>완료</strong> — 도메인 IA·시나리오/페르소나/평가체계 설계, 관리자 어드민 핵심 화면(시나리오 메이커·교육 배포), FS-DS Vue 통합 패턴(FsNode 래퍼), LLM(Qwen) 연동 및 '발화 단위 액션' 평가 프롬프트 규칙</li>
-            <li><strong>진행 중</strong> — 앱 개발자들과 데모앱 고도화, 상담사 모바일(인내심 게이지·SOS 도움말·연습/실전 모드)</li>
-            <li><strong>다음</strong> — 경영진 시연, 평가 리포트 화면 고도화</li>
+            <li><strong>완료</strong> — 관리자 콘솔·상담사 웹, 데모앱(iOS·Android), AI 고객 롤플레잉(프롬프트 v2·모델 선정), LLM 채점, 음성 통화 모드, 난이도 5단계, 백엔드 저장</li>
+            <li><strong>진행/예정</strong> — 거절 훈련 코드 반영, 훈련 결과 집계 API</li>
+            <li><strong>2차</strong> — 실시간 음성 대화 서버(스트리밍 STT·LLM·TTS), 상담사 실사용 테스트, POC 결과 보고·사업화 검토</li>
           </ul>
         `,
       },
     ],
     takeaways: [
-      "기획 단계에서 도메인 정보 구조(IA·시나리오·페르소나·평가체계)를 먼저 정리한 후 코드를 작성하는 흐름을 체득. 화면 이전에 도메인 사고가 먼저.",
-      "본인이 단독으로 구축한 사내 디자인 시스템(FS-DS)을 다른 프로젝트에서 직접 재활용한 메타 경험. 본인 자산이 진짜로 운영 가능한지 검증.",
-      "Vanilla JS factory 라이브러리를 Vue Composition API에 통합하는 FsNode 래퍼 패턴을 직접 설계. 프레임워크 비종속 라이브러리를 Vue 생태계에 끼워 넣는 보편적 패턴.",
-      "관리자 어드민(복잡한 폼·가중치 검증)과 상담사 모바일(학습 단계별 UX·실시간 감정 시각화)의 서로 다른 UX 사고를 같은 도메인 모델 위에서 일관되게 설계.",
-      "'점수가 아닌 코칭' 차별화 사고를 LLM 시스템 프롬프트(추상 조언 금지 규칙)와 모바일 UI(SOS 도움말·추천 화법 버튼) 두 영역에 일관되게 반영.",
+      "실녹취 약 3.6만 콜을 직접 분석해 'AI 고객이 고객답지 않은' 원인을 데이터로 규명하고 생성 정책을 재설계했습니다. 감이 아니라 데이터로 기획한 경험.",
+      "난이도를 '성격'이 아니라 '고객과의 접점'으로 재정의해, tone·인내심·되묻기가 하나의 축에서 파생되는 일관된 설계를 만들었습니다.",
+      "관찰된 실패(정답 유출·채점자화)를 프롬프트 규칙으로 되돌리는 방식으로 리얼리즘을 끌어올렸습니다. 기획은 문서가 아니라 규칙으로 증명된다는 것을 체득.",
+      "여러 LLM을 벤더 중립 프록시로 비교·교체 가능하게 설계해, 모델 선택을 코드가 아닌 의사결정의 문제로 만들었습니다.",
+      "기획과 웹을 단독으로 맡고 앱·서버 개발자와 협업하며, 요구를 기능 단위로 구조화해 개발자와 정확한 언어로 소통하는 역할을 실제로 수행 중입니다.",
     ],
   };
 }

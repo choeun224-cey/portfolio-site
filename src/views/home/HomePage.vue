@@ -132,8 +132,8 @@ const featuredProjects = ref([
   {
     id: 'voca-training',
     title: 'AI 콜센터 상담사 트레이닝 시스템',
-    summary: '관리자 어드민 + 상담사 모바일(TlmTalk) 풀시스템. Vue 3 + 사내 디자인 시스템(FS-DS) 기반.',
-    tags: ['Vue 3', 'FS-DS', 'AI 트레이닝'],
+    summary: '보험 TM 상담사 AI 롤플레잉 트레이닝. 실녹취 약 3.6만 콜 분석 기반 설계, 관리자 콘솔·상담사 웹·앱 기획.',
+    tags: ['서비스 기획', '데이터 기반 설계', 'AI 트레이닝'],
     thumbnail: vocaTrainingThumb,
   },
 ])

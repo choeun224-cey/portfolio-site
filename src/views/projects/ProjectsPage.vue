@@ -77,9 +77,9 @@ onMounted(() => {
       {
         id: 'voca-training',
         title: 'AI 콜센터 상담사 트레이닝 시스템',
-        summary: '상담사 실시간 발화 트레이닝 AI 솔루션. 단독 POC로 시작해 현재 앱 개발자들과 데모앱으로 고도화하며 경영진 시연을 준비 중. 관리자 어드민 + 상담사 모바일 Dual System, "점수가 아니라 코칭" 평가 설계.',
-        tags: ['Vue 3', 'FS-DS', 'Qwen LLM', 'Supertonic TTS', 'AI 트레이닝'],
-        role: '기획·디자인 주도 (앱 개발자 협업)',
+        summary: '보험 TM 상담사가 AI 가상 고객과 실시간 롤플레잉하는 트레이닝 시스템. 실녹취 약 3.6만 콜 분석으로 설계 기준을 세우고 관리자 콘솔·상담사 웹·앱을 기획. 사내 POC(기획·웹 단독, 앱·서버 개발자 협업).',
+        tags: ['서비스 기획', '데이터 기반 설계', 'LLM 프롬프트 설계', 'Vue 3', '보험 TM'],
+        role: '서비스 기획 · 웹 개발 (앱·서버 협업)',
         period: '2026.05 — 진행 중',
         thumbnail: vocaTrainingThumb,
       },
