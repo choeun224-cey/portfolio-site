@@ -247,6 +247,9 @@ import hanipMobileImport from "@/assets/images/hanip-map_import.jpg";
 import hanipMobileRandom from "@/assets/images/hanip-map_random.jpg";
 import hanipRandomWeb from "@/assets/images/hanip-map_random_web.png";
 import trainingImg from "@/assets/images/training3.png";
+import demoApp1 from "@/assets/images/demoapp-1.png";
+import demoApp2 from "@/assets/images/demoapp-2.png";
+import demoApp3 from "@/assets/images/demoapp-3.png";
 
 const route = useRoute();
 const project = ref(null);
@@ -632,6 +635,30 @@ function getVocaTrainingData() {
             <li><strong>팀</strong> — 기획·웹 1명(본인) / 앱 2명 / 서버 1명(2차 투입). 2차에 실시간 음성 대화 서버 개발 예정</li>
           </ul>
         `,
+      },
+      {
+        icon: "bi bi-phone",
+        title: "상담사 데모앱 — 실시간 롤플레잉과 AI 평가",
+        content: `
+          <p>앱 개발팀과 함께 완성한 iOS·Android 데모앱 화면입니다. AI 가상 고객과 실시간으로 통화하고, 통화 중 미션을 추적하며, 통화가 끝나면 AI가 근거 발화까지 인용해 채점합니다. AI 고객의 얼굴과 반응, 평가 문구까지 생성형 AI를 적극 활용해 만들었습니다.</p>
+        `,
+        screens: [
+          {
+            label: "실시간 롤플레잉 통화",
+            desc: "AI 가상 고객과 통화. 상단 인내심 게이지로 고객 감정을 실시간 시각화하고, 하단에 발화 로그를 보여줍니다.",
+            mobile: { src: demoApp1, alt: "실시간 롤플레잉 통화 화면" },
+          },
+          {
+            label: "통화 중 미션 체크리스트",
+            desc: "도입·니즈·혜택·거절·클로징 5개 미션을 통화 도중 실시간으로 추적합니다.",
+            mobile: { src: demoApp3, alt: "통화 중 미션 체크리스트 화면" },
+          },
+          {
+            label: "AI 평가 리포트",
+            desc: "점수와 미션별 채점, AI 총평, 그리고 근거가 된 상담사의 실제 발화 인용까지. '점수가 아니라 코칭' 설계가 화면으로 구현된 부분입니다.",
+            mobile: { src: demoApp2, alt: "AI 평가 리포트 화면" },
+          },
+        ],
       },
       {
         icon: "bi bi-database",
