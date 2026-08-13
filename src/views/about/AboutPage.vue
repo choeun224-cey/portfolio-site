@@ -145,7 +145,7 @@ const career = ref([
     highlights: [
       "사내 웹 디자인 시스템(FS-DS) 설계 및 구축 — Vanilla JS + SCSS 기반 65개 컴포넌트, 1,275개 SVG 아이콘 시스템, GitHub Packages 배포 파이프라인 구축, 번들 최적화(111MB → 3.3MB, 97% 감소)",
       "AIA생명 STT 기반 상담사 관리 시스템(관리자 페이지) 프론트엔드 개발 참여 — 대시보드·상담사 관리·계정 관리 등 관리자 페이지 5종 이상 설계 및 구현, STT 변환된 상담 발화 텍스트를 고객/상담사별로 구분하여 채팅 형태로 시각화하는 상세 뷰 컴포넌트 개발",
-      "Voca Training (AI 콜봇 트레이너) — 회사 도메인(AI콜) 관련 개인 POC 진행. LLM·음성 인터페이스 기반 인터랙티브 롤플레이 트레이너 단독 기획·구현. 벤더 중립 LLM Abstraction(Claude → Gemini 전환), Mock 모드 등 운영 사고 실험",
+      "AI 콜센터 상담사 트레이닝 시스템 — 보험 TM 상담사용 AI 롤플레잉 트레이너. 실녹취 약 3.6만 콜 분석을 기반으로 서비스를 기획하고 관리자·상담사 웹을 단독 개발. 앱·서버 개발자와 협업하며 경영진 시연 준비 중. 여러 LLM 비교 후 Gemini 확정",
       "Notion·Figma·GitHub 기반 팀 협업",
     ],
     tools: ["Vanilla JS", "Vite", "SCSS Modules", "Figma", "GitHub Actions", "Storybook"],
