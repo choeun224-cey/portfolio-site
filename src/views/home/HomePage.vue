@@ -123,18 +123,18 @@ const skills = ref([
 
 const featuredProjects = ref([
   {
-    id: 'fs-ds',
-    title: 'FS-DS 디자인 시스템',
-    summary: '사내 전체 웹 프로젝트를 위한 디자인 시스템 구축. Vanilla JS + SCSS 기반, npm 패키지 배포.',
-    tags: ['Design System', 'SCSS', 'Storybook'],
-    thumbnail: fsDsThumb,
-  },
-  {
     id: 'voca-training',
     title: 'AI 콜센터 상담사 트레이닝 시스템',
     summary: '보험 TM 상담사 AI 롤플레잉 트레이닝. 실녹취 약 3.6만 콜 분석 기반 설계, 관리자 콘솔·상담사 웹·앱 기획.',
     tags: ['서비스 기획', '데이터 기반 설계', 'AI 트레이닝'],
     thumbnail: vocaTrainingThumb,
+  },
+  {
+    id: 'fs-ds',
+    title: 'FS-DS 디자인 시스템',
+    summary: '사내 전체 웹 프로젝트를 위한 디자인 시스템 구축. Vanilla JS + SCSS 기반, npm 패키지 배포.',
+    tags: ['Design System', 'SCSS', 'Storybook'],
+    thumbnail: fsDsThumb,
   },
 ])
 

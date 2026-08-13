@@ -18,7 +18,7 @@
           </div>
           <div class="profile__body">
             <h2 class="profile__name">조은영</h2>
-            <p class="profile__role">Frontend Developer · 사내 시스템 운영</p>
+            <p class="profile__role">Frontend Developer · UI/UX</p>
             <p class="profile__bio">
               SI 증권 프로젝트에서 웹 개발 경력을 시작하여, 구름톤 부트캠프에서
               기획자·디자이너·백엔드 개발자와의 팀 협업을 경험했습니다. 현재
