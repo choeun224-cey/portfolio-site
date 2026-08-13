@@ -31,4 +31,19 @@ const router = createRouter({
   },
 })
 
+// 재배포로 이전 청크가 사라져 dynamic import가 실패하면,
+// 새 버전으로 한 번만 자동 새로고침해 복구한다 (무한 새로고침 방지 플래그 포함)
+router.onError((error, to) => {
+  const msg = error?.message || ''
+  const isChunkError =
+    msg.includes('Failed to fetch dynamically imported module') ||
+    msg.includes('error loading dynamically imported module') ||
+    msg.includes('Importing a module script failed')
+  if (isChunkError && !sessionStorage.getItem('chunk-reload')) {
+    sessionStorage.setItem('chunk-reload', '1')
+    window.location.assign(to?.fullPath || '/')
+  }
+})
+router.afterEach(() => sessionStorage.removeItem('chunk-reload'))
+
 export default router
