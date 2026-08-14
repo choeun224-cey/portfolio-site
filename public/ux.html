@@ -111,6 +111,13 @@
   .ba-col li { font-size: 14px; color: var(--muted); padding-left: 14px; position: relative; }
   .ba-col li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--faint); }
   .ba-arrow { display: flex; align-items: center; color: var(--faint); font-size: 22px; font-weight: 700; }
+  .wf { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 10px; margin-bottom: 14px; display: flex; flex-direction: column; gap: 7px; min-height: 108px; }
+  .wf-row { display: flex; }
+  .blk { height: 12px; border-radius: 3px; background: #dcdce6; display: inline-block; }
+  .wf-before .blk { background: #e9c7bd; }
+  .wf-after .blk { background: #c4e8d5; }
+  .wf-after .head { height: 16px; background: #a6dbc2; margin-bottom: 3px; }
+  .ba-note { font-size: 12px; color: var(--faint); margin-top: 10px; }
 
   /* Highlights (FS-DS) */
   .hl { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 24px; }
@@ -277,6 +284,12 @@
     <div class="ba">
       <div class="ba-col ba-before">
         <div class="ba-k">Before</div>
+        <div class="wf wf-before">
+          <div class="wf-row"><span class="blk" style="width:28%"></span><span class="blk" style="width:22%;margin-left:auto"></span></div>
+          <div class="wf-row"><span class="blk" style="width:40%;margin-left:30%"></span></div>
+          <div class="wf-row"><span class="blk" style="width:24%"></span><span class="blk" style="width:30%;margin-left:12%"></span></div>
+          <div class="wf-row"><span class="blk" style="width:20%;margin-left:auto"></span></div>
+        </div>
         <ul>
           <li>정보가 여러 영역에 분산</li>
           <li>반복적인 화면 이동</li>
@@ -286,6 +299,12 @@
       <div class="ba-arrow">→</div>
       <div class="ba-col ba-after">
         <div class="ba-k">After</div>
+        <div class="wf wf-after">
+          <div class="blk head" style="width:100%"></div>
+          <div class="blk" style="width:100%"></div>
+          <div class="blk" style="width:100%"></div>
+          <div class="blk" style="width:62%"></div>
+        </div>
         <ul>
           <li>관련 정보를 한 화면에 통합</li>
           <li>주요 업무 순서에 맞춰 화면 재구성</li>
@@ -293,6 +312,7 @@
         </ul>
       </div>
     </div>
+    <p class="ba-note">* 실제 화면이 아닌 구조 개념도입니다.</p>
 
     <p class="note">치과 소프트웨어 역시 의료진이 매일 사용하는 업무용 시스템이라는 점에서, 이 경험이 오스템임플란트의 UX와 가장 직접적으로 맞닿아 있다고 생각합니다.</p>
   </div>
