@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CHO EUN YOUNG · UX/UI Design Portfolio</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1a1a2e;
+    --muted: #5b5b70;
+    --faint: #8a8a9a;
+    --line: #e7e7ef;
+    --card: #f7f7fb;
+    --accent: #6d4aff;
+    --accent-soft: #efeaff;
+    --ok: #17a673;
+    --bad: #e0533d;
+    --maxw: 860px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--accent-soft); padding: 5px 12px; border-radius: 999px; margin-bottom: 18px;
+  }
+  h1 { font-size: 44px; line-height: 1.15; letter-spacing: -.02em; }
+  h2 { font-size: 28px; line-height: 1.25; letter-spacing: -.01em; margin-bottom: 6px; }
+  h3 { font-size: 18px; margin-bottom: 6px; }
+  p { color: var(--muted); }
+  .lead { font-size: 18px; color: var(--muted); }
+
+  /* Cover */
+  .cover { padding: 120px 0 96px; border-bottom: 1px solid var(--line); }
+  .cover .role { font-size: 17px; font-weight: 700; color: var(--accent); margin: 14px 0 22px; letter-spacing: .01em; }
+  .cover .role span { color: var(--faint); font-weight: 600; }
+  .cover .tagline { font-size: 22px; line-height: 1.5; color: var(--ink); max-width: 620px; font-weight: 500; }
+  .contact { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--faint); }
+  .contact b { color: var(--muted); font-weight: 600; }
+
+  /* Strengths */
+  .strengths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+  .strength { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+  .strength .num { font-size: 13px; font-weight: 800; color: var(--accent); letter-spacing: .05em; }
+  .strength h3 { margin-top: 8px; font-size: 16px; }
+  .strength p { font-size: 14px; margin-top: 8px; line-height: 1.65; }
+
+  /* Case header */
+  .case-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .case-no { font-size: 15px; font-weight: 800; color: var(--accent); }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 16px 0 6px; }
+  .tag { font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: 999px; }
+  .meta { font-size: 13px; color: var(--faint); margin-top: 8px; }
+
+  /* Flow (Problem -> Solution) */
+  .flow { margin-top: 30px; }
+  .flow-step { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
+  .flow-step .k { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+  .flow-step h3 { margin-top: 6px; font-size: 17px; color: var(--ink); }
+  .flow-step p { margin-top: 6px; font-size: 15px; }
+  .flow-arrow { text-align: center; color: var(--faint); font-size: 20px; line-height: 1; padding: 10px 0; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; }
+  .stat { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px; text-align: center; }
+  .stat .v { font-size: 20px; font-weight: 800; color: var(--accent); }
+  .stat .l { font-size: 12px; color: var(--faint); margin-top: 4px; }
+
+  .sol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+  .sol { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 14px; font-weight: 600; color: var(--ink); }
+  .sol span { display: block; font-size: 12px; font-weight: 500; color: var(--faint); margin-top: 3px; }
+
+  /* Screens */
+  .shots { display: flex; gap: 16px; margin-top: 26px; justify-content: center; flex-wrap: wrap; }
+  .shot { width: 210px; }
+  .shot img { width: 100%; border-radius: 20px; border: 1px solid var(--line); box-shadow: 0 14px 34px rgba(20,20,50,.12); display: block; }
+  .shot .cap { text-align: center; font-size: 12px; color: var(--faint); margin-top: 10px; font-weight: 600; }
+  .wide { margin-top: 24px; }
+  .wide img { width: 100%; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 10px 28px rgba(20,20,50,.10); display: block; }
+  .wide .cap { font-size: 12px; color: var(--faint); margin-top: 10px; }
+
+  /* Problem/Role/Result */
+  .prr { display: grid; gap: 14px; margin-top: 26px; }
+  .prr .row { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: start; padding: 18px 0; border-top: 1px solid var(--line); }
+  .prr .row:first-child { border-top: none; }
+  .prr .lab { font-size: 13px; font-weight: 800; letter-spacing: .06em; color: var(--accent); text-transform: uppercase; padding-top: 2px; }
+  .prr p { font-size: 15px; color: var(--muted); }
+
+  /* Highlights (FS-DS) */
+  .hl { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 24px; }
+  .hl div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .hl h3 { font-size: 15px; }
+  .hl p { font-size: 13.5px; margin-top: 5px; line-height: 1.6; }
+
+  .note { font-size: 14px; color: var(--faint); margin-top: 20px; }
+  .foot { text-align: center; padding: 56px 0; color: var(--faint); }
+  .foot .brand { font-size: 13px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+  .foot .n { margin-top: 8px; font-size: 15px; color: var(--muted); }
+
+  @media (max-width: 720px) {
+    h1 { font-size: 34px; }
+    .strengths, .stat-row, .sol-grid, .hl { grid-template-columns: 1fr; }
+    .prr .row { grid-template-columns: 1fr; gap: 4px; }
+  }
+  @media print {
+    section { padding: 30px 0; break-inside: avoid; }
+    .cover { padding: 40px 0 30px; }
+    .flow-step, .strength, .shot, .wide, .prr .row, .hl div, .stat { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    .shots { gap: 12px; }
+    .shot { width: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 01. COVER -->
+<header class="cover">
+  <div class="wrap">
+    <div class="eyebrow">UX / UI Design Portfolio</div>
+    <h1>CHO EUN YOUNG<br>조은영</h1>
+    <div class="role">UX/UI Designer <span>· Frontend Developer</span></div>
+    <p class="tagline">복잡한 업무를 사용자의 흐름으로 정리하고,<br>데이터와 개발을 연결해 실제 제품으로 구현합니다.</p>
+    <div class="contact">
+      <span><b>Email</b> choeunyoung224@gmail.com</span>
+      <span><b>GitHub</b> github.com/cho-eun-young</span>
+      <span><b>Location</b> Seoul, Korea</span>
+    </div>
+  </div>
+</header>
+
+<!-- 02. ABOUT -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>디자인 배경 위에 데이터와 개발을 더한 UX 디자이너</h2>
+    <p class="lead">화면을 예쁘게 만드는 것을 넘어, 사용자가 실제로 잘 쓰는가까지 책임지는 것을 지향합니다.</p>
+    <div class="strengths">
+      <div class="strength">
+        <div class="num">01</div>
+        <h3>업무용 소프트웨어 UX</h3>
+        <p>금융권과 사내 시스템에서 실제 사용자의 업무 흐름을 이해하고 화면을 개선해 왔습니다.</p>
+      </div>
+      <div class="strength">
+        <div class="num">02</div>
+        <h3>데이터 기반 문제 정의</h3>
+        <p>실제 상담 3.6만 콜을 분석해 AI 고객 경험의 문제를 발견하고 설계 기준으로 전환했습니다.</p>
+      </div>
+      <div class="strength">
+        <div class="num">03</div>
+        <h3>Design + Development</h3>
+        <p>디자인 시스템을 직접 구축하고 실제 코드로 구현해 디자인과 개발 사이의 간극을 줄여왔습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03. CASE 01 — AI 상담 트레이닝 -->
+<section>
+  <div class="wrap">
+    <div class="case-head">
+      <span class="case-no">01</span>
+      <div class="eyebrow" style="margin:0">Case Study</div>
+    </div>
+    <h2>AI 콜센터 상담사 트레이닝 시스템</h2>
+    <p class="lead">보험 TM 상담사가 AI 가상 고객과 실시간으로 롤플레잉하며 발화 단위 코칭을 받는 트레이닝 서비스.</p>
+    <div class="tags">
+      <span class="tag">데이터 기반 UX</span><span class="tag">서비스 기획</span>
+      <span class="tag">IA · 화면 설계</span><span class="tag">AI UX</span>
+    </div>
+    <div class="meta">역할 · 서비스 기획과 웹 UX/화면 설계 단독 (앱 · 서버 개발자 협업) &nbsp;|&nbsp; 사내 POC (진행 중)</div>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="k">Problem</div>
+        <h3>AI 고객의 반응이 실제 고객과 달랐다</h3>
+        <p>AI 고객이 매번 완성된 문장으로 답해, 상담사가 실제 통화 상황을 경험하기 어려웠습니다.</p>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="k">Research</div>
+        <h3>실녹취 3.6만 콜 분석</h3>
+        <p>실제 상담 통화 데이터를 읽기 전용으로 집계해 고객 발화 패턴을 정량 분석했습니다.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="v">36,360</div><div class="l">분석 통화</div></div>
+          <div class="stat"><div class="v">183만+</div><div class="l">STT 세그먼트</div></div>
+          <div class="stat"><div class="v">8.4자</div><div class="l">발화 평균 (중앙값 3자)</div></div>
+          <div class="stat"><div class="v">64.6%</div><div class="l">5자 이하 발화</div></div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="k">Insight</div>
+        <h3>실제 통화는 짧은 반응과 되묻기의 리듬</h3>
+        <p>고객은 완성된 문장이 아니라 짧은 수신 확인과 되묻기로 반응합니다. 문제는 말투 예시 부족이 아니라, 생성 방식이 실제 통화 리듬과 반대라는 점이었습니다.</p>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="k">UX Decision</div>
+        <h3>완성된 답이 아니라 실제 통화 리듬을 재현</h3>
+        <p>직전 상담사 행동을 읽고 → 반응 하나를 고르고 → 짧은 대사를 내는 흐름으로 재설계했습니다. 난이도도 성격이 아니라 '고객과의 접점(Lv1~5)'으로 정의해 tone과 인내심이 일관되게 파생되도록 했습니다.</p>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="k">Solution</div>
+        <h3>롤플레잉부터 AI 코칭까지 이어지는 경험</h3>
+        <div class="sol-grid">
+          <div class="sol">상담사 롤플레잉<span>실시간 통화 · 인내심 게이지</span></div>
+          <div class="sol">통화 중 미션 체크<span>5개 미션 실시간 추적</span></div>
+          <div class="sol">AI 평가 · 코칭<span>점수 + 근거 발화 인용</span></div>
+          <div class="sol">관리자 시나리오 설계<span>3단계 스텝퍼 · 가중치 검증</span></div>
+          <div class="sol">정답 유출 방지<span>고객이 정답을 흘리지 않게 정보 통제</span></div>
+          <div class="sol">거절 대응 훈련<span>거절 8종 정답 발화 설계</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shots">
+      <figure class="shot"><img src="/ux-img/demoapp-1.png" alt="실시간 롤플레잉 통화"><figcaption class="cap">① 실시간 롤플레잉 통화</figcaption></figure>
+      <figure class="shot"><img src="/ux-img/demoapp-3.png" alt="통화 중 미션 체크리스트"><figcaption class="cap">② 통화 중 미션 체크</figcaption></figure>
+      <figure class="shot"><img src="/ux-img/demoapp-2.png" alt="AI 평가 리포트"><figcaption class="cap">③ AI 평가 리포트</figcaption></figure>
+    </div>
+    <figure class="wide"><img src="/ux-img/training3.png" alt="관리자 시나리오 메이커"><figcaption class="cap">관리자 시나리오 메이커 — 3단계 스텝퍼로 시나리오·페르소나·평가 기준 설계</figcaption></figure>
+  </div>
+</section>
+
+<!-- 04. CASE 02 — KB증권 -->
+<section>
+  <div class="wrap">
+    <div class="case-head">
+      <span class="case-no">02</span>
+      <div class="eyebrow" style="margin:0">Case Study</div>
+    </div>
+    <h2>KB증권 직원 업무 단말 UX 개선</h2>
+    <p class="lead">증권사 직원이 매일 사용하는 통합 업무 단말(HTS 환경)을 재구축하며 화면과 업무 흐름을 개선한 프로젝트.</p>
+    <div class="tags">
+      <span class="tag">업무 시스템 UX</span><span class="tag">AS-IS 분석</span>
+      <span class="tag">업무 플로우 개선</span><span class="tag">금융 도메인</span>
+    </div>
+    <div class="meta">역할 · UI 재구축 및 화면/업무 흐름 개선 &nbsp;|&nbsp; 동양시스템즈 (2022 – 2024)</div>
+
+    <div class="prr">
+      <div class="row"><div class="lab">Problem</div><p>기존 업무 화면은 기능과 정보가 여러 곳에 분산되어 있어, 사용자가 업무 흐름을 한눈에 따라가기 어려웠습니다.</p></div>
+      <div class="row"><div class="lab">My Role</div><p>AS-IS 화면과 실제 업무 흐름을 분석해 결함을 도출하고, 실사용자(임직원) 피드백을 반영해 화면 구조와 업무 플로우를 다시 설계했습니다.</p></div>
+      <div class="row"><div class="lab">Result</div><p>정보 탐색과 반복 업무를 단순화해 가독성과 운영 효율을 크게 높였습니다. 매일 쓰이는 업무 도구에서 화면의 흐름이 곧 업무 속도가 된다는 것을 체감한 경험입니다.</p></div>
+    </div>
+    <p class="note">치과 소프트웨어 역시 의료진이 매일 사용하는 업무용 시스템이라는 점에서, 이 경험이 오스템임플란트의 UX와 가장 직접적으로 맞닿아 있다고 생각합니다.</p>
+  </div>
+</section>
+
+<!-- 05. CASE 03 — FS-DS -->
+<section>
+  <div class="wrap">
+    <div class="case-head">
+      <span class="case-no">03</span>
+      <div class="eyebrow" style="margin:0">Case Study</div>
+    </div>
+    <h2>FS-DS 사내 디자인 시스템</h2>
+    <p class="lead">여러 프로젝트가 공용으로 쓰는 디자인 시스템을 단독으로 설계·구축하고, 팀 전체가 일관된 화면을 만들 수 있게 한 프로젝트.</p>
+    <div class="tags">
+      <span class="tag">디자인 시스템</span><span class="tag">디자인 토큰</span>
+      <span class="tag">컴포넌트 설계</span><span class="tag">Storybook</span>
+    </div>
+    <div class="meta">역할 · 디자인 시스템 설계·구축·운영 단독 &nbsp;|&nbsp; 한일네트웍스 (2025 – 현재)</div>
+
+    <div class="prr">
+      <div class="row"><div class="lab">Problem</div><p>프로젝트마다 버튼·입력창·모달을 매번 새로 만들어 화면이 제각각이었고, 디자이너와 개발자가 같은 논의를 반복했습니다.</p></div>
+      <div class="row"><div class="lab">Solution</div><p>색상·간격·타이포를 디자인 토큰으로 체계화하고, 65개 컴포넌트를 일관된 구조로 설계했습니다. Storybook으로 사용법을 문서화하고 도입 부서마다 온보딩을 진행해 사내 표준으로 자리 잡게 했습니다.</p></div>
+    </div>
+
+    <div class="hl">
+      <div><h3>디자인 토큰 체계</h3><p>컬러·간격·타이포를 토큰으로 정리해, 한 곳만 바꿔도 전 화면이 일관되게 반응.</p></div>
+      <div><h3>일관된 컴포넌트 구조</h3><p>65개 컴포넌트를 같은 규칙으로 설계 — UI는 제공하고 로직은 소비자에게 위임해 어디서든 예측 가능하게.</p></div>
+      <div><h3>Storybook 문서화</h3><p>30여 개 컴포넌트를 라이브 프리뷰·코드 복사와 함께 문서화해 설명 없이도 바로 사용.</p></div>
+      <div><h3>다부서 온보딩·표준 전파</h3><p>여러 부서에 도입 교육을 진행해 실제 제품에 적용, 화면 일관성을 조직 차원으로 확장.</p></div>
+    </div>
+
+    <div class="shots">
+      <figure class="shot" style="width:auto;max-width:380px"><img src="/ux-img/storybook-login.png" alt="Storybook 로그인 템플릿"><figcaption class="cap">Storybook — 페이지 템플릿 문서</figcaption></figure>
+      <figure class="shot" style="width:auto;max-width:380px"><img src="/ux-img/storybook-alert.png" alt="Storybook Alert 컴포넌트"><figcaption class="cap">Storybook — 컴포넌트 문서 (코드 복사 포함)</figcaption></figure>
+    </div>
+    <p class="note">디자인을 코드로 구현하고 운영까지 해봤기에, 개발 조직과 같은 언어로 대화하며 UX를 실제 제품으로 만들어낼 수 있습니다. (번들 최적화 111MB→3.3MB 등 엔지니어링 성과 포함)</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="brand">UX / UI Design Portfolio</div>
+    <div class="n">CHO EUN YOUNG · 조은영 &nbsp;|&nbsp; choeunyoung224@gmail.com</div>
+  </div>
+</footer>
+
+</body>
+</html>
