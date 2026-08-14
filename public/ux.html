@@ -45,8 +45,8 @@
 
   /* Cover */
   .cover { padding: 120px 0 96px; border-bottom: 1px solid var(--line); }
-  .cover .role { font-size: 17px; font-weight: 700; color: var(--accent); margin: 14px 0 22px; letter-spacing: .01em; }
-  .cover .role span { color: var(--faint); font-weight: 600; }
+  .cover .role { font-size: 23px; font-weight: 800; color: var(--accent); margin: 14px 0 22px; letter-spacing: -.01em; }
+  .cover .role span { display: block; font-size: 14px; color: var(--faint); font-weight: 600; margin-top: 5px; letter-spacing: 0; }
   .cover .tagline { font-size: 22px; line-height: 1.5; color: var(--ink); max-width: 620px; font-weight: 500; }
   .contact { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--faint); }
   .contact b { color: var(--muted); font-weight: 600; }
@@ -98,6 +98,20 @@
   .prr .lab { font-size: 13px; font-weight: 800; letter-spacing: .06em; color: var(--accent); text-transform: uppercase; padding-top: 2px; }
   .prr p { font-size: 15px; color: var(--muted); }
 
+  /* Before / After */
+  .ba-title { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin: 30px 0 12px; }
+  .ba { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: stretch; }
+  .ba-col { border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+  .ba-before { background: #fdf3f1; border-color: #f4d7cf; }
+  .ba-after { background: #edfaf3; border-color: #cbeede; }
+  .ba-k { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+  .ba-before .ba-k { color: var(--bad); }
+  .ba-after .ba-k { color: var(--ok); }
+  .ba-col ul { list-style: none; display: grid; gap: 8px; }
+  .ba-col li { font-size: 14px; color: var(--muted); padding-left: 14px; position: relative; }
+  .ba-col li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--faint); }
+  .ba-arrow { display: flex; align-items: center; color: var(--faint); font-size: 22px; font-weight: 700; }
+
   /* Highlights (FS-DS) */
   .hl { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 24px; }
   .hl div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
@@ -113,6 +127,8 @@
     h1 { font-size: 34px; }
     .strengths, .stat-row, .sol-grid, .hl { grid-template-columns: 1fr; }
     .prr .row { grid-template-columns: 1fr; gap: 4px; }
+    .ba { grid-template-columns: 1fr; }
+    .ba-arrow { justify-content: center; transform: rotate(90deg); }
   }
   @media print {
     section { padding: 30px 0; break-inside: avoid; }
@@ -131,11 +147,12 @@
   <div class="wrap">
     <div class="eyebrow">UX / UI Design Portfolio</div>
     <h1>CHO EUN YOUNG<br>조은영</h1>
-    <div class="role">UX/UI Designer <span>· Frontend Developer</span></div>
+    <div class="role">UX/UI Designer<span>Frontend Developer</span></div>
     <p class="tagline">복잡한 업무를 사용자의 흐름으로 정리하고,<br>데이터와 개발을 연결해 실제 제품으로 구현합니다.</p>
     <div class="contact">
       <span><b>Email</b> choeunyoung224@gmail.com</span>
       <span><b>GitHub</b> github.com/cho-eun-young</span>
+      <span><b>Portfolio</b> portfolio-site-phi-woad-38.vercel.app</span>
       <span><b>Location</b> Seoul, Korea</span>
     </div>
   </div>
@@ -244,7 +261,7 @@
       <div class="eyebrow" style="margin:0">Case Study</div>
     </div>
     <h2>KB증권 직원 업무 단말 UX 개선</h2>
-    <p class="lead">증권사 직원이 매일 사용하는 통합 업무 단말(HTS 환경)을 재구축하며 화면과 업무 흐름을 개선한 프로젝트.</p>
+    <p class="lead">증권사 직원이 매일 사용하는 통합 업무 단말(HTS 환경)을 재구축하며 화면과 업무 흐름을 개선했습니다.</p>
     <div class="tags">
       <span class="tag">업무 시스템 UX</span><span class="tag">AS-IS 분석</span>
       <span class="tag">업무 플로우 개선</span><span class="tag">금융 도메인</span>
@@ -256,6 +273,27 @@
       <div class="row"><div class="lab">My Role</div><p>AS-IS 화면과 실제 업무 흐름을 분석해 결함을 도출하고, 실사용자(임직원) 피드백을 반영해 화면 구조와 업무 플로우를 다시 설계했습니다.</p></div>
       <div class="row"><div class="lab">Result</div><p>정보 탐색과 반복 업무를 단순화해 가독성과 운영 효율을 크게 높였습니다. 매일 쓰이는 업무 도구에서 화면의 흐름이 곧 업무 속도가 된다는 것을 체감한 경험입니다.</p></div>
     </div>
+    <div class="ba-title">화면 개선 — Before → After</div>
+    <div class="ba">
+      <div class="ba-col ba-before">
+        <div class="ba-k">Before</div>
+        <ul>
+          <li>정보가 여러 영역에 분산</li>
+          <li>반복적인 화면 이동</li>
+          <li>업무 흐름 파악이 어려움</li>
+        </ul>
+      </div>
+      <div class="ba-arrow">→</div>
+      <div class="ba-col ba-after">
+        <div class="ba-k">After</div>
+        <ul>
+          <li>관련 정보를 한 화면에 통합</li>
+          <li>주요 업무 순서에 맞춰 화면 재구성</li>
+          <li>반복 작업 단계 축소</li>
+        </ul>
+      </div>
+    </div>
+
     <p class="note">치과 소프트웨어 역시 의료진이 매일 사용하는 업무용 시스템이라는 점에서, 이 경험이 오스템임플란트의 UX와 가장 직접적으로 맞닿아 있다고 생각합니다.</p>
   </div>
 </section>
@@ -268,7 +306,7 @@
       <div class="eyebrow" style="margin:0">Case Study</div>
     </div>
     <h2>FS-DS 사내 디자인 시스템</h2>
-    <p class="lead">여러 프로젝트가 공용으로 쓰는 디자인 시스템을 단독으로 설계·구축하고, 팀 전체가 일관된 화면을 만들 수 있게 한 프로젝트.</p>
+    <p class="lead">여러 프로젝트가 공용으로 쓰는 디자인 시스템을 단독으로 설계·구축해, 팀 전체가 일관된 화면을 만들도록 지원했습니다.</p>
     <div class="tags">
       <span class="tag">디자인 시스템</span><span class="tag">디자인 토큰</span>
       <span class="tag">컴포넌트 설계</span><span class="tag">Storybook</span>
