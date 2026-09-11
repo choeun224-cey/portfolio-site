@@ -58,6 +58,12 @@
   .strength h3 { margin-top: 8px; font-size: 16px; }
   .strength p { font-size: 14px; margin-top: 8px; line-height: 1.65; }
 
+  /* About head (photo + intro) */
+  .about-head { display: flex; gap: 26px; align-items: center; margin-bottom: 6px; }
+  .about-photo { width: 124px; height: 152px; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); flex-shrink: 0; box-shadow: 0 8px 22px rgba(20,20,50,.10); }
+  .about-intro { flex: 1; }
+  @media (max-width: 720px) { .about-head { flex-direction: column; align-items: flex-start; gap: 16px; } }
+
   /* Case header */
   .case-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
   .case-no { font-size: 15px; font-weight: 800; color: var(--accent); }
@@ -169,8 +175,13 @@
 <section>
   <div class="wrap">
     <div class="eyebrow">About</div>
-    <h2>데이터와 개발을 무기로 서비스를 기획합니다</h2>
-    <p class="lead">화면을 그리는 것을 넘어, 문제를 정의하고 구조를 설계해 사용자가 실제로 쓰는 서비스로 만듭니다.</p>
+    <div class="about-head">
+      <img class="about-photo" src="/ux-img/profile.jpeg" alt="조은영 프로필 사진">
+      <div class="about-intro">
+        <h2>데이터와 개발을 무기로 서비스를 기획합니다</h2>
+        <p class="lead">화면을 그리는 것을 넘어, 문제를 정의하고 구조를 설계해 사용자가 실제로 쓰는 서비스로 만듭니다.</p>
+      </div>
+    </div>
     <div class="strengths">
       <div class="strength">
         <div class="num">01</div>
